@@ -28,16 +28,16 @@ const stats = [
     label: "años de experiencia",
     icon: Award,
   },
-  {
-    value: "$XXM",
-    label: "recuperados mensualmente",
-    icon: DollarSign,
-  },
-  {
-    value: "XX%",
-    label: "tasa promedio de recuperación",
-    icon: TrendingUp,
-  },
+  // {
+  //   value: "$XXM",
+  //   label: "recuperados mensualmente",
+  //   icon: DollarSign,
+  // },
+  // {
+  //   value: "XX%",
+  //   label: "tasa promedio de recuperación",
+  //   icon: TrendingUp,
+  // },
 ];
 
 export const Credibility = () => {
@@ -55,7 +55,7 @@ export const Credibility = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (

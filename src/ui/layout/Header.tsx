@@ -13,7 +13,7 @@ type Props = {
   variant: "primary" | "secondary";
 };
 
-const SENA_BASE_URL = "https://sena-landing.vercel.app";
+const SENA_BASE_URL = "https://www.somossena.com";
 
 export const Header = ({ variant }: Props) => {
   const pathname = usePathname();

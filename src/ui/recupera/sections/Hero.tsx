@@ -21,12 +21,6 @@ export const Hero = () => {
     <div className="relative overflow-hidden transition-all gap-6 bg-[#F9F9F9] p-4 md:p-6">
       <div className="max-w-[1280px] mx-auto px-4 py-8 md:py-16 md:pt-12 md:pb-8 relative z-10">
         <div className="text-center mx-auto">
-          <div className="inline-flex items-center gap-2 bg-brand-primary/10 px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-4 md:mb-6">
-            <span className="text-brand-primary-dark font-semibold text-xs md:text-sm">
-              Recupera • Powered by Recsa
-            </span>
-          </div>
-
           <h1 className="text-brand-primary-dark font-canaro text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight">
             Tu cartera vencida no está{" "}
             <span className="text-brand-primary">perdida</span>

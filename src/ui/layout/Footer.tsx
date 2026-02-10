@@ -3,7 +3,7 @@ import { AssetIcon } from "@/lib/utils/assets/icon";
 import { AssetImage } from "@/lib/utils/assets/image";
 import { usePathname, useRouter } from "next/navigation";
 
-const SENA_BASE_URL = "https://sena-landing.vercel.app";
+const SENA_BASE_URL = "https://www.somossena.com";
 
 export const Footer = () => {
   const router = useRouter();

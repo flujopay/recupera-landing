@@ -12,12 +12,30 @@ export const TermAndCond = () => {
           </p>
         </div>
         <div className="bg-white rounded-lg shadow-sm p-6 md:p-10 text-sm md:text-base leading-relaxed text-gray-700">
+          <p className="mb-4">
+            <strong>FLUJOLINK CHILE SpA</strong>, sociedad constituida bajo las
+            leyes de la República de Chile, <strong>RUT N° [●]</strong>, con
+            domicilio en <strong>[●]</strong>, comuna de <strong>[●]</strong>,
+            Región <strong>[●]</strong>, Chile (en adelante, «
+            <strong>Flujolink</strong>»), pone a disposición de la persona
+            natural o jurídica que acepte estos Términos (el «Usuario») la
+            plataforma de cobranza y los servicios asociados denominados{" "}
+            <strong>“Recupero Plus”</strong>.
+          </p>
+
+          <p className="mb-4">
+            Estas condiciones contractuales (los «<strong>Términos</strong>»)
+            rigen la relación jurídica y comercial entre Flujolink y el Usuario
+            respecto del acceso y uso de la Plataforma y de los Servicios. Al
+            aceptar estos Términos mediante firma electrónica simple, el Usuario
+            manifiesta haber leído, comprendido y aceptado íntegramente el
+            contenido del presente instrumento y de sus Anexos.
+          </p>
+
           <p className="mb-6">
-            <strong>FLUJOLINK CHILE SpA</strong> pone a disposición del Usuario
-            la plataforma de cobranza y servicios asociados denominados{" "}
-            <strong>“Recupero Plus”</strong>. Al aceptar estos Términos mediante
-            firma electrónica simple, el Usuario declara haber leído,
-            comprendido y aceptado íntegramente el presente instrumento.
+            Los registros electrónicos (IP, dispositivo, medio, fecha, hora y
+            versión de los Términos) quedarán resguardados por Flujolink y
+            constituirán prueba suficiente de aceptación.
           </p>
 
           {/* 1. DEFINICIONES */}
@@ -310,48 +328,194 @@ export const TermAndCond = () => {
           {/* 9. SLA */}
           <Section title="9. NIVELES DE SERVICIO (SLA) Y FUERZA MAYOR">
             <ul className="list-disc pl-6 space-y-1">
-              <li>Disponibilidad mensual: 98%.</li>
-              <li>Soporte: lunes a viernes 08:30 – 18:30 (GMT-3).</li>
-              <li>Tiempo de respuesta inicial: 8 horas hábiles.</li>
-              <li>No responsabilidad por fuerza mayor.</li>
+              <li>
+                Disponibilidad: Flujolink se compromete a una disponibilidad
+                mensual de la Plataforma no inferior al noventa y ocho por
+                ciento (98%), excluyendo mantenimientos programados comunicados
+                con veinticuatro (24) horas de anticipación.
+              </li>
+              <li>
+                Soporte: horario de atención lunes a viernes de 08:30 a 18:30
+                (GMT-3). Tiempo de respuesta inicial: ocho (8) horas hábiles.
+              </li>
+              <li>
+                Fuerza mayor: ninguna Parte será responsable por incumplimientos
+                causados por eventos fuera de su control razonable (fallas
+                masivas de internet, desastres naturales, huelgas generales,
+                actos de autoridad, etc.).
+              </li>
             </ul>
           </Section>
 
           {/* 10. RESPONSABILIDAD */}
-          <Section title="10. Limitación de Responsabilidad">
-            La responsabilidad total de Flujolink se limitará al monto pagado
-            por el Usuario durante los últimos 12 meses. No aplica a daños
-            indirectos, lucro cesante o pérdida de reputación.
+          <Section title="10. LIMITACIÓN DE RESPONSABILIDAD">
+            <p>
+              La responsabilidad total de Flujolink, contractual o
+              extracontractual, ante el Usuario o terceros, se limitará al monto
+              total de Fees Fijos y Comisiones pagados por el Usuario a
+              Flujolink en los doce (12) meses anteriores al hecho generador.
+            </p>
+            <p>
+              En ningún caso Flujolink será responsable por daños indirectos,
+              lucro cesante, pérdida de datos o reputación.
+            </p>
           </Section>
 
-          {/* 11. PROPIEDAD */}
-          <Section title="11. Propiedad Intelectual">
-            Flujolink conserva todos los derechos sobre la Plataforma y otorga
-            al Usuario una licencia limitada y no transferible.
+          {/* 11. PROPIEDAD INTELECTUAL */}
+          <Section title="11. PROPIEDAD INTELECTUAL">
+            <p>
+              Flujolink retiene todos los derechos de propiedad intelectual
+              sobre la Plataforma, su código fuente, bases de datos, marcas y
+              documentación.
+            </p>
+            <p>
+              Flujolink otorga al Usuario una licencia limitada, no exclusiva,
+              no transferible y revocable para acceder y utilizar la Plataforma
+              conforme a estos Términos.
+            </p>
           </Section>
 
           {/* 12. CESIÓN */}
-          <Section title="12. Cesión y Subcontratación">
-            El Usuario no podrá ceder el contrato sin autorización. Flujolink
-            podrá subcontratar garantizando estándares equivalentes.
+          <Section title="12. CESIÓN Y SUBCONTRATACIÓN">
+            <p>
+              El Usuario no podrá ceder este contrato sin autorización escrita
+              de Flujolink.
+            </p>
+            <p>
+              Flujolink podrá subcontratar servicios de terceros
+              (subprocesadores), garantizando que dichos terceros mantengan
+              niveles de protección equivalentes a los aquí previstos.
+            </p>
           </Section>
 
           {/* 13. LEY */}
-          <Section title="13. Resolución de Conflictos">
-            Las controversias serán sometidas al Centro de Arbitraje y Mediación
-            de la Cámara de Comercio de Santiago (Chile), conforme a la
-            legislación chilena.
+          <Section title="13. RESOLUCIÓN DE CONFLICTOS Y LEY APLICABLE">
+            <ul className="list-disc pl-6 space-y-1">
+              <li>
+                <span className="font-bold">Negociación directa:</span> las
+                Partes procurarán resolver de buena fe cualquier controversia
+                mediante negociación directa durante un plazo de quince (15)
+                días corridos.
+              </li>
+              <li>
+                <span className="font-bold">Arbitraje:</span> si no se alcanza
+                solución, toda controversia será sometida a arbitraje
+                institucional administrado por el Centro de Arbitraje y
+                Mediación de la Cámara de Comercio de Santiago (CCS), conforme a
+                su reglamento vigente.
+              </li>
+              <li>
+                <span className="font-bold">Sede y árbitro:</span> la sede será
+                Santiago de Chile, y el arbitraje será conducido por un (1)
+                árbitro arbitrador. El laudo será definitivo y vinculante.
+              </li>
+              <li>
+                <span className="font-bold">Ley aplicable: </span> estos
+                Términos se regirán por las leyes de la República de Chile.
+              </li>
+            </ul>
           </Section>
 
-          <div className="mt-10 border-t pt-6 text-sm text-gray-500">
-            Si tienes consultas, contáctanos en{" "}
-            <a
-              href="mailto:contacto@flujolink.com"
-              className="text-blue-600 hover:underline"
-            >
-              contacto@flujolink.com
-            </a>
-          </div>
+          {/* ANEXO A */}
+          <section className="mt-12">
+            <h2 className="text-brand-primary-dark text-lg md:text-2xl font-extrabold mb-4">
+              ANEXO A: ACUERDO DE TRATAMIENTO DE DATOS PERSONALES (DPA)
+            </h2>
+
+            <h3 className="text-lg font-semibold mt-6 mb-2">
+              1. Responsable del tratamiento
+            </h3>
+            <p className="mb-4">
+              <strong>FLUJOLINK CHILE SpA</strong>, RUT N° <strong>[●]</strong>,
+              con domicilio en <strong>[●]</strong>, Chile.
+            </p>
+
+            <h3 className="text-lg font-semibold mt-6 mb-2">
+              2. Finalidades del tratamiento
+            </h3>
+            <p className="mb-2">
+              Flujolink tratará los datos personales del Usuario para:
+            </p>
+            <ul className="list-disc pl-6 space-y-1 mb-4">
+              <li>
+                Gestión contractual y precontractual: alta del Usuario,
+                evaluación comercial, facturación, cobranza y atención de
+                requerimientos.
+              </li>
+              <li>
+                Acceso y operación de la Plataforma: creación de cuentas,
+                autenticación, perfiles y trazabilidad de gestiones.
+              </li>
+              <li>
+                Soporte y comunicaciones: atención por correo, chat y teléfono.
+              </li>
+              <li>
+                Seguridad y continuidad operativa: monitoreo de accesos,
+                prevención de fraude, respaldo y auditoría.
+              </li>
+              <li>
+                Cumplimiento legal: atención de requerimientos tributarios,
+                contables o judiciales.
+              </li>
+              <li>
+                Comunicaciones informativas o comerciales: sobre mejoras o
+                novedades del servicio, según autorización del Usuario.
+              </li>
+            </ul>
+
+            <h3 className="text-lg font-semibold mt-6 mb-2">
+              3. Destinatarios y transferencias
+            </h3>
+            <p className="mb-4">
+              Flujolink podrá compartir información con proveedores
+              tecnológicos, asesores legales, auditores y entidades financieras
+              cuando sea necesario para la ejecución del servicio.
+            </p>
+            <p className="mb-4">
+              Asimismo, Flujolink podrá efectuar transferencias internacionales
+              de datos, especialmente para servicios de almacenamiento en la
+              nube, asegurando estándares razonables de seguridad y
+              confidencialidad.
+            </p>
+
+            <h3 className="text-lg font-semibold mt-6 mb-2">
+              4. Plazo de conservación
+            </h3>
+            <p className="mb-4">
+              Los datos personales serán conservados mientras exista relación
+              contractual y posteriormente por los plazos necesarios para
+              cumplimiento de obligaciones legales y prescripción de acciones.
+            </p>
+
+            <h3 className="text-lg font-semibold mt-6 mb-2">
+              5. Derechos del titular
+            </h3>
+            <p className="mb-4">
+              El Usuario podrá ejercer los derechos de acceso, rectificación,
+              cancelación y oposición conforme a la Ley N° 19.628, solicitándolo
+              al correo{" "}
+              <a
+                href="mailto:contacto@flujolink.com"
+                className="text-blue-600 hover:underline"
+              >
+                contacto@flujolink.com
+              </a>
+              .
+            </p>
+          </section>
+
+          {/* ANEXO B */}
+          <section className="mt-12">
+            <h2 className="text-brand-primary-dark text-lg md:text-2xl font-extrabold mb-4">
+              ANEXO B: FEE FIJO Y CONDICIONES COMERCIALES
+            </h2>
+
+            <p>
+              El Fee Fijo mensual será el indicado en la propuesta comercial
+              aceptada por el Usuario, y se facturará mensualmente por
+              adelantado.
+            </p>
+          </section>
         </div>
       </div>
     </div>
