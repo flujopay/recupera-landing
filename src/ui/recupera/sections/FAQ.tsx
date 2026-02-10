@@ -34,7 +34,7 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div id="faq" className="bg-white py-12 md:py-20">
+    <div id="preguntas-frecuentes" className="bg-white py-12 md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-12">
         <div className="text-left mb-12">
           <h2 className="text-brand-primary-dark text-3xl md:text-4xl font-extrabold mb-4">

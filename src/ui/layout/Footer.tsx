@@ -1,9 +1,9 @@
 "use client";
+import { CONTACT_INFO, FOOTER_DESCUBRIR, FOOTER_EMPRESA, FOOTER_LEGAL, SOCIAL_LINKS } from "@/lib/data/constants";
 import { AssetIcon } from "@/lib/utils/assets/icon";
 import { AssetImage } from "@/lib/utils/assets/image";
 import { usePathname, useRouter } from "next/navigation";
 
-const SENA_BASE_URL = "https://www.somossena.com";
 
 export const Footer = () => {
   const router = useRouter();
@@ -63,7 +63,7 @@ export const Footer = () => {
         {/* Social Icons - Mobile (after newsletter) */}
         <div className="md:hidden flex gap-5 mb-8">
           <a
-            href="https://www.facebook.com/flujolink"
+            href={SOCIAL_LINKS.facebook}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#f6793a] transition-colors duration-200"
@@ -72,7 +72,7 @@ export const Footer = () => {
             <AssetIcon.facebook width={22} height={22} />
           </a>
           <a
-            href="https://www.instagram.com/sena_latam/reels/"
+            href={SOCIAL_LINKS.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-500 transition-colors duration-200"
@@ -81,7 +81,7 @@ export const Footer = () => {
             <AssetIcon.instagram width={22} height={22} />
           </a>
           <a
-            href="https://www.linkedin.com/company/flujolink/posts/?feedView=all"
+            href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-500 transition-colors duration-200"
@@ -90,7 +90,7 @@ export const Footer = () => {
             <AssetIcon.linkedin width={22} height={22} />
           </a>
           <a
-            href="https://www.youtube.com/@flujolink"
+            href={SOCIAL_LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-500 transition-colors duration-200"
@@ -109,18 +109,18 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="mailto:contacto@senacobranza.com"
+                  href={`mailto:${CONTACT_INFO.email}`}
                   className="hover:text-blue-300 transition-colors duration-200"
                 >
-                  contacto@senacobranza.com
+                  {CONTACT_INFO.email}
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+569495969"
+                  href={`tel:${CONTACT_INFO.phone}`}
                   className="hover:text-blue-300 transition-colors duration-200"
                 >
-                  +569495969
+                  {CONTACT_INFO.phone}
                 </a>
               </li>
             </ul>
@@ -131,24 +131,19 @@ export const Footer = () => {
               EMPRESA
             </h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <button
-                  onClick={() =>
-                    handleNavClick("external", `${SENA_BASE_URL}/nosotros`)
-                  }
-                  className="hover:text-blue-300 cursor-pointer transition-colors duration-200"
-                >
-                  Sobre nosotros
-                </button>
-              </li>
-              <li>
-                <button disabled className="transition-colors duration-200">
-                  Sobre Recsa
-                </button>
-              </li>
-              <li>
-                <p className="transition-colors duration-200">FAQs</p>
-              </li>
+              {FOOTER_EMPRESA.map((item) => (
+                <li key={item.label}>
+                  <button
+                    disabled={item.disabled}
+                    onClick={() =>
+                      !item.disabled && handleNavClick(item.type, item.href)
+                    }
+                    className={`${item.disabled ? "" : "hover:text-blue-300 cursor-pointer"} transition-colors duration-200`}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -157,62 +152,38 @@ export const Footer = () => {
               DESCUBRIR
             </h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <button
-                  onClick={() =>
-                    handleNavClick("external", `${SENA_BASE_URL}/#productos`)
-                  }
-                  className="hover:text-blue-300 cursor-pointer transition-colors duration-200"
-                >
-                  Productos
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavClick("scroll", "#como-funciona")}
-                  className="hover:text-blue-300 cursor-pointer transition-colors duration-200"
-                >
-                  Cómo funciona
-                </button>
-              </li>
-              <li>
-                <button
-                  disabled
-                  onClick={() =>
-                    handleNavClick("scroll", "#preguntas-frecuentes")
-                  }
-                  className="transition-colors duration-200"
-                >
-                  Preguntas frecuentes
-                </button>
-              </li>
+              {FOOTER_DESCUBRIR.map((item) => (
+                <li key={item.label}>
+                  <button
+                    disabled={item.disabled}
+                    onClick={() =>
+                      !item.disabled && handleNavClick(item.type, item.href)
+                    }
+                    className={`${item.disabled ? "" : "hover:text-blue-300 cursor-pointer"} transition-colors duration-200`}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="space-y-3">
             <h3 className="font-bold text-xs uppercase tracking-wide">LEGAL</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <button
-                  onClick={() => handleNavClick("redirect", "/term")}
-                  className="hover:text-blue-300 cursor-pointer transition-colors duration-200"
-                >
-                  Término y condiciones
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavClick("redirect", "/privacy")}
-                  className="hover:text-blue-300 cursor-pointer transition-colors duration-200"
-                >
-                  Políticas de cookies
-                </button>
-              </li>
-              <li>
-                <button disabled className="transition-colors duration-200">
-                  Actualizar configuración de cookies
-                </button>
-              </li>
+              {FOOTER_LEGAL.map((item) => (
+                <li key={item.label}>
+                  <button
+                    disabled={item.disabled}
+                    onClick={() =>
+                      !item.disabled && handleNavClick(item.type, item.href)
+                    }
+                    className={`${item.disabled ? "" : "hover:text-blue-300 cursor-pointer"} transition-colors duration-200`}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -232,29 +203,19 @@ export const Footer = () => {
               EMPRESA
             </h3>
             <ul className="space-y-3 text-base">
-              <li>
-                <button
-                  onClick={() =>
-                    handleNavClick("external", `${SENA_BASE_URL}/nosotros`)
-                  }
-                  className="hover:text-blue-500 cursor-pointer transition-colors duration-200"
-                >
-                  Sobre nosotros
-                </button>
-              </li>
-              <li>
-                <button
-                  disabled
-                  className="hover:text-blue-500 transition-colors duration-200"
-                >
-                  Sobre Recsa
-                </button>
-              </li>
-              <li>
-                <p className="hover:text-blue-500 transition-colors duration-200">
-                  FAQs
-                </p>
-              </li>
+              {FOOTER_EMPRESA.map((item) => (
+                <li key={item.label}>
+                  <button
+                    disabled={item.disabled}
+                    onClick={() =>
+                      !item.disabled && handleNavClick(item.type, item.href)
+                    }
+                    className={`${item.disabled ? "" : "hover:text-blue-500 cursor-pointer"} transition-colors duration-200`}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -263,35 +224,19 @@ export const Footer = () => {
               DESCUBRIR
             </h3>
             <ul className="space-y-3 text-base">
-              <li>
-                <button
-                  onClick={() =>
-                    handleNavClick("external", `${SENA_BASE_URL}/#productos`)
-                  }
-                  className="hover:text-blue-500 cursor-pointer transition-colors duration-200"
-                >
-                  Productos
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavClick("scroll", "#como-funciona")}
-                  className="hover:text-blue-500 cursor-pointer transition-colors duration-200"
-                >
-                  Cómo funciona
-                </button>
-              </li>
-              <li>
-                <button
-                  disabled
-                  onClick={() =>
-                    handleNavClick("scroll", "#preguntas-frecuentes")
-                  }
-                  className="hover:text-blue-500 transition-colors duration-200"
-                >
-                  Preguntas frecuentes
-                </button>
-              </li>
+              {FOOTER_DESCUBRIR.map((item) => (
+                <li key={item.label}>
+                  <button
+                    disabled={item.disabled}
+                    onClick={() =>
+                      !item.disabled && handleNavClick(item.type, item.href)
+                    }
+                    className={`${item.disabled ? "" : "hover:text-blue-500 cursor-pointer"} transition-colors duration-200`}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -302,18 +247,18 @@ export const Footer = () => {
             <ul className="space-y-3 text-base">
               <li>
                 <a
-                  href="mailto:contacto@senacobranza.com"
+                  href={`mailto:${CONTACT_INFO.email}`}
                   className="hover:text-blue-500 transition-colors duration-200 break-all"
                 >
-                  contacto@senacobranza.com
+                  {CONTACT_INFO.email}
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+569495969"
+                  href={`tel:${CONTACT_INFO.phone}`}
                   className="hover:text-blue-500 transition-colors duration-200"
                 >
-                  +569495969
+                  {CONTACT_INFO.phone}
                 </a>
               </li>
             </ul>
@@ -324,30 +269,19 @@ export const Footer = () => {
               LEGAL
             </h3>
             <ul className="space-y-3 text-base">
-              <li>
-                <button
-                  onClick={() => handleNavClick("redirect", "/term")}
-                  className="hover:text-blue-500 cursor-pointer transition-colors duration-200"
-                >
-                  Términos y condiciones
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavClick("redirect", "/privacy")}
-                  className="hover:text-blue-500 cursor-pointer transition-colors duration-200"
-                >
-                  Políticas de privacidad
-                </button>
-              </li>
-              <li>
-                <button
-                  disabled
-                  className="hover:text-blue-500 transition-colors duration-200"
-                >
-                  Actualizar configuración de cookies
-                </button>
-              </li>
+              {FOOTER_LEGAL.map((item) => (
+                <li key={item.label}>
+                  <button
+                    disabled={item.disabled}
+                    onClick={() =>
+                      !item.disabled && handleNavClick(item.type, item.href)
+                    }
+                    className={`${item.disabled ? "" : "hover:text-blue-500 cursor-pointer"} transition-colors duration-200`}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -381,7 +315,7 @@ export const Footer = () => {
 
           <div className="flex gap-6">
             <a
-              href="https://www.facebook.com/flujolink"
+              href={SOCIAL_LINKS.facebook}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#f6793a] transition-colors duration-200"
@@ -390,7 +324,7 @@ export const Footer = () => {
               <AssetIcon.facebook width={22} height={22} />
             </a>
             <a
-              href="https://www.instagram.com/sena_latam/reels/"
+              href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-500 transition-colors duration-200"
@@ -399,7 +333,7 @@ export const Footer = () => {
               <AssetIcon.instagram width={22} height={22} />
             </a>
             <a
-              href="https://www.linkedin.com/company/flujolink/posts/?feedView=all"
+              href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-500 transition-colors duration-200"
@@ -408,7 +342,7 @@ export const Footer = () => {
               <AssetIcon.linkedin width={22} height={22} />
             </a>
             <a
-              href="https://www.youtube.com/@flujolink"
+              href={SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-500 transition-colors duration-200"
