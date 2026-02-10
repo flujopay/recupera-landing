@@ -160,6 +160,7 @@ export const ContactForm = () => {
       utmMedium: utmMedium || undefined,
       utmCampaign: utmCampaign || undefined,
       utmContent: utmContent || undefined,
+      howFound: data.comoLlegaste,
     };
 
     postContactFormMutate(payload, {
@@ -367,10 +368,10 @@ export const ContactForm = () => {
                   <div className="space-y-2">
                     {[
                       { value: "google", label: "Google" },
-                      { value: "redes_sociales", label: "Redes sociales" },
-                      { value: "publicidad", label: "Publicidad" },
-                      { value: "referido", label: "Referido" },
-                      { value: "otro", label: "Otro" },
+                      { value: "social", label: "Redes sociales" },
+                      { value: "ads", label: "Publicidad" },
+                      { value: "referral", label: "Referido" },
+                      { value: "other", label: "Otro" },
                     ].map((opcion) => (
                       <label
                         key={opcion.value}

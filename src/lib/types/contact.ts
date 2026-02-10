@@ -6,6 +6,7 @@ export type ContactFormRequest = {
   apellido: string;
   correo: string;
   telefono: string;
+  howFound: string;
   representaEmpresa?: string;
   nombreEmpresa?: string;
   mensaje: string;
