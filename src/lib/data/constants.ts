@@ -69,7 +69,7 @@ export const FOOTER_LEGAL = [
     label: "Políticas de privacidad",
     href: "/privacy",
     type: "redirect" as const,
-    disabled: false,
+    disabled: true,
   },
   {
     label: "Actualizar configuración de cookies",
