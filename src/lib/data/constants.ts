@@ -14,8 +14,8 @@ export const SOCIAL_LINKS = {
 // Contact Info
 // ==========================================
 export const CONTACT_INFO = {
-  email: "contacto@senacobranza.com",
-  phone: "+569495969",
+  email: "hola@somossena.com",
+  phone: "+569 4448 9673",
 };
 
 // ==========================================

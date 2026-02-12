@@ -723,10 +723,10 @@ export const TermAndCondPeru = () => {
                 ejercer estos derechos dirigiendo tu solicitud al correo
                 electrónico{" "}
                 <a
-                  href="mailto:contacto@flujolink.com"
+                  href="mailto:hola@somossena.com"
                   className="text-brand-primary font-semibold hover:underline"
                 >
-                  contacto@flujolink.com
+                  hola@somossena.com
                 </a>
                 .
               </p>

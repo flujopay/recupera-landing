@@ -495,10 +495,10 @@ export const TermAndCond = () => {
               cancelación y oposición conforme a la Ley N° 19.628, solicitándolo
               al correo{" "}
               <a
-                href="mailto:contacto@flujolink.com"
+                href="mailto:hola@somossena.com"
                 className="text-blue-600 hover:underline"
               >
-                contacto@flujolink.com
+                hola@somossena.com
               </a>
               .
             </p>
