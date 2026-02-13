@@ -14,9 +14,9 @@ export const TermAndCond = () => {
         <div className="bg-white rounded-lg shadow-sm p-6 md:p-10 text-sm md:text-base leading-relaxed text-gray-700">
           <p className="mb-4">
             <strong>FLUJOLINK CHILE SpA</strong>, sociedad constituida bajo las
-            leyes de la República de Chile, <strong>RUT N° [●]</strong>, con
-            domicilio en <strong>[●]</strong>, comuna de <strong>[●]</strong>,
-            Región <strong>[●]</strong>, Chile (en adelante, «
+            leyes de la República de Chile, <strong>RUT N° 77891013-6</strong>, con
+            domicilio en <strong>ESTADO 369 OF 200</strong>, comuna de <strong>Santiago</strong>,
+            Región <strong>METROPOLITANA</strong>, Chile (en adelante, «
             <strong>Flujolink</strong>»), pone a disposición de la persona
             natural o jurídica que acepte estos Términos (el «Usuario») la
             plataforma de cobranza y los servicios asociados denominados{" "}
@@ -426,8 +426,9 @@ export const TermAndCond = () => {
               1. Responsable del tratamiento
             </h3>
             <p className="mb-4">
-              <strong>FLUJOLINK CHILE SpA</strong>, RUT N° <strong>[●]</strong>,
-              con domicilio en <strong>[●]</strong>, Chile.
+              <strong>FLUJOLINK CHILE SpA</strong>, RUT N° <strong>77891013-6</strong>,
+              con domicilio en <strong>ESTADO 369 OF 200</strong>, comuna de <strong>Santiago</strong>,
+              Región <strong>METROPOLITANA</strong>, Chile.
             </p>
 
             <h3 className="text-lg font-semibold mt-6 mb-2">
