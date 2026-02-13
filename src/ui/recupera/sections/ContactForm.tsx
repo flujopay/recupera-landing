@@ -11,7 +11,7 @@ import SimpleCountrySelect, {
   OptionSelect,
 } from "@/ui/shared/SimpleCountrySelect";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
@@ -35,6 +35,7 @@ export const ContactForm = () => {
   const [countrySelect, setCountrySelect] = useState<string | null>(null);
   const { ipCurrency, setIpCurrency, setWhatsappCountry } = useCurrencyStore();
   const { showToast } = useToastStore();
+  const router = useRouter();
 
   const {
     control,
@@ -171,6 +172,7 @@ export const ContactForm = () => {
           subMessage:
             "Gracias por tu mensaje, pronto nos pondremos en contacto contigo.",
         });
+        router.push("/thankyou");
         reset();
       },
       onError: () => {
