@@ -119,8 +119,8 @@ export const Header = ({ variant }: Props) => {
       },
       {
         id: 7,
-        name: "Intercom",
-        href: `${SENA_BASE_URL}/industrias/intercom`,
+        name: "Intercompany",
+        href: `${SENA_BASE_URL}/industrias/intercompany`,
         description: "Protege tu MRR y recupera pagos fallidos en modelos de suscripción",
         icon: (
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
