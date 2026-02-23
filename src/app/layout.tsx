@@ -60,6 +60,19 @@ export default async function RootLayout({
                           })(window,document,'script','dataLayer','GTM-T2QDCJ6C');
                           `}
           </Script>
+          {/* Google Ads */}
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=AW-17962976949"
+            strategy="afterInteractive"
+          />
+          <Script id="google-ads-config" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17962976949');
+            `}
+          </Script>
         </head>
         <body
           className={`${canaroFont.variable} ${adobeCleanFont.variable} ${caslonFont.variable} antialiased font-adobe`}
