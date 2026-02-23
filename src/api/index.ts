@@ -11,7 +11,12 @@ const apiDev = axios.create({
   baseURL: baseDEVMVURL,
 });
 
+const apiForm = axios.create({
+  baseURL: baseURL,
+});
+
 api.defaults.headers.common["Content-Type"] = "application/json";
+apiForm.defaults.headers.common["Content-Type"] = "multipart/form-data";
 apiDev.defaults.headers.common["Content-Type"] = "application/json";
 
-export { api, apiDev };
+export { api, apiDev, apiForm };

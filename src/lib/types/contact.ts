@@ -14,4 +14,5 @@ export type ContactFormRequest = {
   utmMedium?: string;
   utmCampaign?: string;
   utmContent?: string;
+  file?: File;
 };

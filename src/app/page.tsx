@@ -1,9 +1,12 @@
 import { RecuperaPage } from "@/ui/recupera/RecuperaPage";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
     <div className="w-full">
-      <RecuperaPage />
+      <Suspense>
+        <RecuperaPage />
+      </Suspense>
     </div>
   );
 }

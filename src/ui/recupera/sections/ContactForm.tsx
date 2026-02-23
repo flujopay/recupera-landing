@@ -4,7 +4,6 @@ import { usePostContactForm } from "@/lib/services/contactService";
 import { useCountries } from "@/lib/services/countryService";
 import { useCurrencyStore } from "@/lib/store/useCurrencyStore";
 import { useToastStore } from "@/lib/store/useToastStore";
-import { ContactFormRequest } from "@/lib/types/contact";
 import Button from "@/ui/shared/Button";
 import { Input } from "@/ui/shared/Input";
 import SimpleCountrySelect, {
@@ -25,6 +24,7 @@ type FormData = {
   nombreEmpresa?: string;
   mensaje?: string;
   comoLlegaste: string;
+  file?: FileList;
 };
 
 export const ContactForm = () => {
@@ -54,6 +54,7 @@ export const ContactForm = () => {
       nombreEmpresa: "",
       mensaje: "",
       comoLlegaste: "",
+      file: undefined,
     },
   });
 
@@ -144,27 +145,37 @@ export const ContactForm = () => {
 
   const onSubmit = (data: FormData) => {
     const telefonoConPrefijo = (countrySelect || "") + data.telefono;
-    const payload: ContactFormRequest = {
-      telefono: telefonoConPrefijo,
-      formOrigin: "Formulario de Registro",
-      countryName:
-        countries?.find((type) => type.country === countrySelect)
-          ?.country_code || "",
-      productType: "main",
-      nombre: data.nombre,
-      apellido: data.apellido,
-      correo: data.correo,
-      representaEmpresa: data.representaEmpresa,
-      nombreEmpresa: data.nombreEmpresa || "",
-      mensaje: data.mensaje || "",
-      utmSource: utmSource || undefined,
-      utmMedium: utmMedium || undefined,
-      utmCampaign: utmCampaign || undefined,
-      utmContent: utmContent || undefined,
-      howFound: data.comoLlegaste,
-    };
 
-    postContactFormMutate(payload, {
+    const form = new FormData();
+
+    form.append("telefono", telefonoConPrefijo);
+    form.append("formOrigin", "Formulario de Registro");
+    form.append(
+      "countryName",
+      countries?.find((type) => type.country === countrySelect)?.country_code ||
+        "",
+    );
+    form.append("productType", "main");
+    form.append("nombre", data.nombre);
+    form.append("apellido", data.apellido);
+    form.append("correo", data.correo);
+    form.append("representaEmpresa", data.representaEmpresa);
+    form.append("nombreEmpresa", data.nombreEmpresa || "");
+    form.append("mensaje", data.mensaje || "");
+    form.append("howFound", data.comoLlegaste);
+
+    if (utmSource) form.append("utmSource", utmSource);
+    if (utmMedium) form.append("utmMedium", utmMedium);
+    if (utmCampaign) form.append("utmCampaign", utmCampaign);
+    if (utmContent) form.append("utmContent", utmContent);
+
+    const file = data.file?.[0];
+    if (file) form.append("file", file);
+    // for (const [key, value] of form.entries()) {
+    //   console.log(key, value);
+    // }
+
+    postContactFormMutate(form, {
       onSuccess: () => {
         showToast({
           iconType: "success",
@@ -357,6 +368,124 @@ export const ContactForm = () => {
                 />
               </div>
             )}
+
+            <div className="mb-6">
+              <label className="block text-sm font-bold text-black mb-2">
+                Adjuntar archivo{" "}
+                <span className="text-gray-500 font-normal">(opcional)</span>
+              </label>
+
+              <Controller
+                name="file"
+                control={control}
+                rules={{
+                  validate: (files) => {
+                    if (!files || files.length === 0) return true;
+
+                    const file = files[0];
+                    const maxMB = 10;
+                    const maxBytes = maxMB * 1024 * 1024;
+
+                    const allowed = [
+                      "application/pdf",
+                      "image/png",
+                      "image/jpeg",
+                      "image/webp",
+                    ];
+
+                    if (file.size > maxBytes) return `Máximo ${maxMB}MB`;
+                    if (!allowed.includes(file.type))
+                      return "Solo PDF o imágenes (PNG/JPG/WEBP)";
+
+                    return true;
+                  },
+                }}
+                render={({ field }) => (
+                  <div className="rounded-2xl border border-gray-200 bg-white p-4">
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5 h-10 w-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                        {/* icono simple */}
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                            stroke="currentColor"
+                            strokeWidth="1.6"
+                            strokeLinecap="round"
+                          />
+                          <path
+                            d="M7 10l5-5 5 5"
+                            stroke="currentColor"
+                            strokeWidth="1.6"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12 5v12"
+                            stroke="currentColor"
+                            strokeWidth="1.6"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </div>
+
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold text-black">
+                          Sube un archivo (brief, captura, PDF)
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          PDF o imagen. Máx 10MB.
+                        </p>
+
+                        <div className="mt-3 flex items-center gap-3">
+                          <label className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold cursor-pointer bg-gray-100 hover:bg-gray-200 transition">
+                            Elegir archivo
+                            <input
+                              type="file"
+                              className="hidden"
+                              accept=".pdf,image/*"
+                              onChange={(e) => {
+                                console.log(e.target.files);
+                                field.onChange(e.target.files);
+                              }}
+                            />
+                          </label>
+
+                          {field.value?.length ? (
+                            <div className="min-w-0">
+                              <p className="text-sm text-black truncate">
+                                {field.value[0].name}
+                              </p>
+                              <button
+                                type="button"
+                                className="text-xs text-brand-primary font-semibold hover:underline"
+                                onClick={() => field.onChange(undefined)}
+                              >
+                                Quitar
+                              </button>
+                            </div>
+                          ) : (
+                            <span className="text-xs text-gray-400">
+                              Ningún archivo seleccionado
+                            </span>
+                          )}
+                        </div>
+
+                        {errors.file?.message && (
+                          <p className="text-red-500 text-xs mt-2">
+                            {errors.file.message}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              />
+            </div>
 
             <div className="mb-6">
               <label className="block text-sm font-bold text-black mb-2">
