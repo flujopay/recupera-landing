@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     description:
       "Con Recupera, simplifica y acelera la gestión de tus cobros y pagos. Una solución para empresas enfocada en eficiencia y resultados.",
     type: "website",
+    url: "https://recupera.somossena.com",
+    images: ["https://recupera.somossena.com/sena-crm-lite.jpg"],
     siteName: "Recupera",
     locale: "es_PE",
   },
