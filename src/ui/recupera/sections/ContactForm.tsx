@@ -1,6 +1,9 @@
 "use client";
 
-import { usePostContactForm, usePostTestn8n } from "@/lib/services/contactService";
+import {
+  usePostContactForm,
+  usePostTestn8n,
+} from "@/lib/services/contactService";
 import { useCountries } from "@/lib/services/countryService";
 import { useCurrencyStore } from "@/lib/store/useCurrencyStore";
 import { useToastStore } from "@/lib/store/useToastStore";
@@ -10,6 +13,7 @@ import { Input } from "@/ui/shared/Input";
 import SimpleCountrySelect, {
   OptionSelect,
 } from "@/ui/shared/SimpleCountrySelect";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -354,6 +358,23 @@ export const ContactForm = () => {
                 </p>
               )}
             </div>
+
+            <p className="text-xs text-slate-500 mt-5 mb-5">
+              Al enviar, aceptas los{" "}
+              <Link
+                href="/term"
+                className="text-brand-primary font-semibold hover:underline"
+              >
+                Términos
+              </Link>{" "}
+              y la{" "}
+              <Link
+                href="/privacy"
+                className="text-brand-primary font-semibold hover:underline"
+              >
+                Política de Privacidad
+              </Link>
+            </p>
 
             <Button
               type="submit"
