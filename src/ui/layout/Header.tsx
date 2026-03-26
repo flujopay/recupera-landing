@@ -454,7 +454,7 @@ export const Header = ({ variant }: Props) => {
       {
         id: 3,
         name: "Opera",
-        description: "CRM de cobranza y pagos B2B potenciado con IA.",
+        description: "Servicio de cobranza all-in.",
         tab: "external",
         href: "https://opera.somossena.com/",
       },
