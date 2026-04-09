@@ -75,7 +75,7 @@ export const ThankyouPage = () => {
               {/* CTA */}
               <div className="flex justify-center">
                 <Link
-                  href="https://meetings.hubspot.com/francisco472"
+                  href="https://meetings.hubspot.com/francisco502"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 bg-brand-secondary hover:bg-brand-secondary-dark text-white font-bold text-sm md:text-base px-6 py-3.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-brand-secondary/25 hover:scale-[1.02]"
