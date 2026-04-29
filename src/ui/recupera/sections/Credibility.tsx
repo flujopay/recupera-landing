@@ -1,31 +1,24 @@
-import {
-  Award,
-  DollarSign,
-  Globe,
-  PhoneCall,
-  TrendingUp,
-  Zap,
-} from "lucide-react";
+import { Award, DollarSign, Globe, PhoneCall, TrendingUp, Zap } from 'lucide-react'
 
 const stats = [
   {
-    value: "146M",
-    label: "gestiones mensuales",
+    value: '146M',
+    label: 'gestiones mensuales',
     icon: Zap,
   },
   {
-    value: "70M",
-    label: "llamadas de agentes",
+    value: '70M',
+    label: 'llamadas de agentes',
     icon: PhoneCall,
   },
   {
-    value: "15",
-    label: "países en LATAM",
+    value: '15',
+    label: 'países en LATAM',
     icon: Globe,
   },
   {
-    value: "40+",
-    label: "años de experiencia",
+    value: '40+',
+    label: 'años de experiencia',
     icon: Award,
   },
   // {
@@ -38,7 +31,7 @@ const stats = [
   //   label: "tasa promedio de recuperación",
   //   icon: TrendingUp,
   // },
-];
+]
 
 export const Credibility = () => {
   return (
@@ -46,18 +39,16 @@ export const Credibility = () => {
       <div className="max-w-[1280px] mx-auto px-4 md:px-12">
         <div className="text-left mb-12">
           <h2 className="text-brand-primary-dark text-3xl md:text-4xl font-extrabold mb-4">
-            Respaldados por el líder en{" "}
-            <span className="text-brand-primary">cobranza LATAM</span>
+            Respaldados por el líder en <span className="text-brand-primary">cobranza LATAM</span>
           </h2>
           <p className="font-adobe text-black mt-2 text-lg leading-5">
-            Recsa lleva más de 40 años recuperando cartera compleja para
-            empresas de todos los tamaños
+            Recsa lleva más de 40 años recuperando cartera compleja para empresas de todos los tamaños
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {stats.map((stat, index) => {
-            const Icon = stat.icon;
+            const Icon = stat.icon
             return (
               <div
                 key={index}
@@ -71,19 +62,17 @@ export const Credibility = () => {
                 </div>
                 <div className="text-slate-600 text-sm">{stat.label}</div>
               </div>
-            );
+            )
           })}
         </div>
 
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 shadow-sm">
             <Award className="h-5 w-5 text-brand-primary" />
-            <span className="text-brand-primary-dark font-semibold">
-              Powered by Recsa
-            </span>
+            <span className="text-brand-primary-dark font-semibold">Powered by Recsa</span>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

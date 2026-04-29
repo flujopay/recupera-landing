@@ -1,7 +1,7 @@
-import { PrivacyPage } from "@/ui/privacy/PrivacyPage";
+import { PrivacyPage } from '@/ui/privacy/PrivacyPage'
 
 const Page = () => {
-  return <PrivacyPage />;
-};
+  return <PrivacyPage />
+}
 
-export default Page;
+export default Page

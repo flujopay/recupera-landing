@@ -2,11 +2,21 @@
   "name": "recupera-landing",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x",
+    "yarn": ">=1.22.19",
+    "npm": "please-use-yarn"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "husky",
+    "tsc": "tsc",
+    "eslint": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
+    "prettier": "prettier --write .",
+    "lint-staged": "lint-staged --no-stash"
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
@@ -23,12 +33,21 @@
     "zustand": "^5.0.11"
   },
   "devDependencies": {
+    "@commitlint/cli": "20.5.0",
+    "@commitlint/config-conventional": "20.5.0",
+    "@next/eslint-plugin-next": "16.2.4",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "8.57.1",
+    "@typescript-eslint/parser": "8.57.1",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "eslint-config-prettier": "10.1.8",
+    "husky": "9.1.7",
+    "lint-staged": "16.4.0",
+    "prettier": "3.8.1",
     "tailwindcss": "^4.1.18",
     "typescript": "^5"
   }

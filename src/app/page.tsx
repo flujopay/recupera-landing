@@ -1,5 +1,5 @@
-import { RecuperaPage } from "@/ui/recupera/RecuperaPage";
-import { Suspense } from "react";
+import { RecuperaPage } from '@/ui/recupera/RecuperaPage'
+import { Suspense } from 'react'
 
 export default function Home() {
   return (
@@ -8,5 +8,5 @@ export default function Home() {
         <RecuperaPage />
       </Suspense>
     </div>
-  );
+  )
 }

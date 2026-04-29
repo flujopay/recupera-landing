@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server'
 
 export async function GET() {
   const content = `
@@ -6,11 +6,11 @@ User-agent: *
 Allow: /
 
 Sitemap: https://recupera.somossena.com/sitemap.xml
-  `.trim();
+  `.trim()
 
   return new NextResponse(content, {
     headers: {
-      "Content-Type": "text/plain",
+      'Content-Type': 'text/plain',
     },
-  });
+  })
 }

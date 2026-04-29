@@ -1,7 +1,7 @@
-import { ThankyouPage } from "@/ui/thankyou/ThankyouPage";
+import { ThankyouPage } from '@/ui/thankyou/ThankyouPage'
 
 const Thankyou = () => {
-  return <ThankyouPage />;
-};
+  return <ThankyouPage />
+}
 
-export default Thankyou;
+export default Thankyou
