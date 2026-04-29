@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import { useIpConfiguration } from "@/lib/hooks/useIpConfiguration";
+import { useIpConfiguration } from '@/lib/hooks/useIpConfiguration'
 
 export const IpConfigurationProvider = () => {
-  useIpConfiguration();
-  return null;
-};
+  useIpConfiguration()
+  return null
+}

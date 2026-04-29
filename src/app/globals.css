@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --font-canaro: var(--font-canaro);
@@ -45,7 +45,7 @@
 }
 
 .btn-floating-whatsapp__animated:before {
-  content: "";
+  content: '';
   border-color: inherit;
   top: 50%;
   left: 50%;

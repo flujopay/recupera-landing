@@ -1,69 +1,68 @@
-"use client";
+'use client'
 
-import { useCurrencyStore } from "@/lib/store/useCurrencyStore";
-import { useEffect } from "react";
+import { useCurrencyStore } from '@/lib/store/useCurrencyStore'
+import { useEffect } from 'react'
 
 type Props = {
-  country: string | null;
-};
+  country: string | null
+}
 
 export const IpConfigInitializer = ({ country }: Props) => {
-  const { setIpCurrency, setWhatsappCountry, setShouldAutoOpenCountrySelect } =
-    useCurrencyStore();
+  const { setIpCurrency, setWhatsappCountry, setShouldAutoOpenCountrySelect } = useCurrencyStore()
 
   useEffect(() => {
     if (!country) {
-      console.log("No se pudo obtener el país, usando fallback");
-      setShouldAutoOpenCountrySelect(true);
-      setIpCurrency("CLP");
+      console.log('No se pudo obtener el país, usando fallback')
+      setShouldAutoOpenCountrySelect(true)
+      setIpCurrency('CLP')
       setWhatsappCountry({
-        phoneNumber: "944489673",
-        countryCode: "+56",
-      });
-      return;
+        phoneNumber: '944489673',
+        countryCode: '+56',
+      })
+      return
     }
 
-    console.log("País detectado por IP (servidor):", country);
+    console.log('País detectado por IP (servidor):', country)
 
-    if (country === "Peru") {
-      setIpCurrency("PEN");
+    if (country === 'Peru') {
+      setIpCurrency('PEN')
       setWhatsappCountry({
-        phoneNumber: "958969041",
-        countryCode: "+51",
-      });
-    } else if (country === "Chile") {
-      setIpCurrency("CLP");
+        phoneNumber: '958969041',
+        countryCode: '+51',
+      })
+    } else if (country === 'Chile') {
+      setIpCurrency('CLP')
       setWhatsappCountry({
-        phoneNumber: "944489673",
-        countryCode: "+56",
-      });
-    } else if (country === "Colombia") {
-      setIpCurrency("COP");
+        phoneNumber: '944489673',
+        countryCode: '+56',
+      })
+    } else if (country === 'Colombia') {
+      setIpCurrency('COP')
       setWhatsappCountry({
-        phoneNumber: "944489673",
-        countryCode: "+56",
-      });
-    } else if (country === "Mexico") {
-      setIpCurrency("MXN");
+        phoneNumber: '944489673',
+        countryCode: '+56',
+      })
+    } else if (country === 'Mexico') {
+      setIpCurrency('MXN')
       setWhatsappCountry({
-        phoneNumber: "944489673",
-        countryCode: "+56",
-      });
-    } else if (country === "Ecuador") {
-      setIpCurrency("USD");
+        phoneNumber: '944489673',
+        countryCode: '+56',
+      })
+    } else if (country === 'Ecuador') {
+      setIpCurrency('USD')
       setWhatsappCountry({
-        phoneNumber: "944489673",
-        countryCode: "+56",
-      });
+        phoneNumber: '944489673',
+        countryCode: '+56',
+      })
     } else {
       // Default fallback
-      setIpCurrency("CLP");
+      setIpCurrency('CLP')
       setWhatsappCountry({
-        phoneNumber: "944489673",
-        countryCode: "+56",
-      });
+        phoneNumber: '944489673',
+        countryCode: '+56',
+      })
     }
-  }, [country, setIpCurrency, setShouldAutoOpenCountrySelect, setWhatsappCountry]);
+  }, [country, setIpCurrency, setShouldAutoOpenCountrySelect, setWhatsappCountry])
 
-  return null;
-};
+  return null
+}

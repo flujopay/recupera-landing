@@ -1,19 +1,17 @@
-import { Quote, Star } from "lucide-react";
+import { Quote, Star } from 'lucide-react'
 
 const testimonials = [
   {
-    quote:
-      "Recuperamos el 78% de +$2M que considerábamos pérdidas, sin dañar relaciones con clientes clave.",
-    author: "CFO, Empresa Distribuidora",
+    quote: 'Recuperamos el 78% de +$2M que considerábamos pérdidas, sin dañar relaciones con clientes clave.',
+    author: 'CFO, Empresa Distribuidora',
     rating: 5,
   },
   {
-    quote:
-      "El respaldo de Recsa es invaluable. Son negociadores expertos que entienden el contexto B2B.",
-    author: "Director Financiero, Empresa Tech",
+    quote: 'El respaldo de Recsa es invaluable. Son negociadores expertos que entienden el contexto B2B.',
+    author: 'Director Financiero, Empresa Tech',
     rating: 5,
   },
-];
+]
 
 export const Testimonials = () => {
   return (
@@ -38,23 +36,14 @@ export const Testimonials = () => {
               <div className="relative z-10">
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-5 w-5 "
-                      fill="currentColor"
-                      color="text-yellow-400"
-                    />
+                    <Star key={i} className="h-5 w-5 " fill="currentColor" color="text-yellow-400" />
                   ))}
                 </div>
 
-                <p className="text-slate-700 text-lg mb-6 italic">
-                  "{testimonial.quote}"
-                </p>
+                <p className="text-slate-700 text-lg mb-6 italic">"{testimonial.quote}"</p>
 
                 <div className="border-t border-slate-200 pt-4">
-                  <p className="text-brand-primary-dark font-semibold">
-                    {testimonial.author}
-                  </p>
+                  <p className="text-brand-primary-dark font-semibold">{testimonial.author}</p>
                 </div>
               </div>
             </div>
@@ -62,5 +51,5 @@ export const Testimonials = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

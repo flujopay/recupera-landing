@@ -1,21 +1,20 @@
-"use client";
+'use client'
 
 // src/components/Toast/index.tsx
 
-import { useToastStore } from "@/lib/store/useToastStore";
-import { AssetIcon } from "@/lib/utils/assets/icon";
-import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { useToastStore } from '@/lib/store/useToastStore'
+import { AssetIcon } from '@/lib/utils/assets/icon'
+import { useEffect } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 
 export const Toast = () => {
-  const { message, subMessage, iconType, width, trigger, resetToast } =
-    useToastStore();
+  const { message, subMessage, iconType, width, trigger, resetToast } = useToastStore()
   const icons = {
     success: AssetIcon.successToast,
     error: AssetIcon.dangerToast,
     warning: AssetIcon.dangerToast,
-  };
-  const Icon = icons[iconType ?? "success"];
+  }
+  const Icon = icons[iconType ?? 'success']
 
   const notify = () => {
     toast.custom(
@@ -23,7 +22,7 @@ export const Toast = () => {
         <div
           role="alert"
           style={width ? { width } : undefined}
-          className={`${t.visible ? "animate-enter" : "animate-leave"}
+          className={`${t.visible ? 'animate-enter' : 'animate-leave'}
                       min-w-[280px] w-full max-w-max rounded-xl pointer-events-auto
                       bg-[#FFFFFF] shadow-[0_4px_12px_0_rgba(0,0,0,0.07)]
                       flex items-center p-4 gap-4 
@@ -34,24 +33,16 @@ export const Toast = () => {
           <div className="flex items-center gap-3 w-full justify-between">
             <div className="flex-1 flex items-center gap-3">
               <div className="flex flex-col gap-1">
-                <p
-                  className={`text-[14px] font-semibold leading-[14px] text-[#252F4A]`}
-                >
-                  {message}
-                </p>
+                <p className={`text-[14px] font-semibold leading-[14px] text-[#252F4A]`}>{message}</p>
                 {subMessage && (
-                  <p
-                    className={`text-[13px] font-medium leading-[14px] text-[#78829D]`}
-                  >
-                    {subMessage}
-                  </p>
+                  <p className={`text-[13px] font-medium leading-[14px] text-[#78829D]`}>{subMessage}</p>
                 )}
               </div>
             </div>
             <div
               onClick={() => {
-                toast.dismiss(t.id);
-                console.log("xd");
+                toast.dismiss(t.id)
+                console.log('xd')
               }}
               className="p-[6px] cursor-pointer"
             >
@@ -60,15 +51,15 @@ export const Toast = () => {
           </div>
         </div>
       ),
-      { duration: 4000, position: "top-right" },
-    );
+      { duration: 4000, position: 'top-right' }
+    )
     /* Reseteamos el gatillo */
-    setTimeout(() => resetToast(), 100);
-  };
+    setTimeout(() => resetToast(), 100)
+  }
 
   useEffect(() => {
-    if (trigger) notify();
-  }, [trigger]); // se dispara cuando trigger pasa a true
+    if (trigger) notify()
+  }, [trigger]) // se dispara cuando trigger pasa a true
 
-  return <Toaster />;
-};
+  return <Toaster />
+}

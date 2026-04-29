@@ -1,15 +1,15 @@
-"use client";
+'use client'
 
-import clsx from "clsx";
-import { FC, Fragment, ReactNode, useCallback, useEffect, useRef } from "react";
+import clsx from 'clsx'
+import { FC, Fragment, ReactNode, useCallback, useEffect, useRef } from 'react'
 
 type Props = {
-  contentHead: ReactNode;
-  contentDetail: ReactNode;
-  isOpen: boolean;
-  withoutTransition?: boolean;
-  customClassName?: string;
-};
+  contentHead: ReactNode
+  contentDetail: ReactNode
+  isOpen: boolean
+  withoutTransition?: boolean
+  customClassName?: string
+}
 
 export const DropDownCard: FC<Props> = ({
   contentHead,
@@ -18,59 +18,54 @@ export const DropDownCard: FC<Props> = ({
   withoutTransition = false,
   customClassName,
 }) => {
-  const bodyRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
 
   const updateHeight = useCallback(() => {
-    if (withoutTransition) return;
+    if (withoutTransition) return
     if (contentRef.current && bodyRef.current) {
-      const height = isOpen ? `${contentRef.current.scrollHeight}px` : "0";
-      bodyRef.current.style.height = height;
+      const height = isOpen ? `${contentRef.current.scrollHeight}px` : '0'
+      bodyRef.current.style.height = height
     }
-  }, [isOpen, withoutTransition]);
+  }, [isOpen, withoutTransition])
 
   useEffect(() => {
-    updateHeight();
-  }, [updateHeight]);
+    updateHeight()
+  }, [updateHeight])
 
   useEffect(() => {
-    if (withoutTransition || !contentRef.current) return;
+    if (withoutTransition || !contentRef.current) return
 
-    const el = contentRef.current;
+    const el = contentRef.current
     const resizeObserver = new ResizeObserver(() => {
-      updateHeight();
-    });
+      updateHeight()
+    })
 
-    resizeObserver.observe(el);
+    resizeObserver.observe(el)
 
     return () => {
-      resizeObserver.disconnect();
-    };
-  }, [updateHeight, withoutTransition]);
+      resizeObserver.disconnect()
+    }
+  }, [updateHeight, withoutTransition])
 
   useEffect(() => {
-    if (!withoutTransition) return;
+    if (!withoutTransition) return
     if (bodyRef.current) {
-      bodyRef.current.style.height = "";
+      bodyRef.current.style.height = ''
     }
-  }, [withoutTransition]);
+  }, [withoutTransition])
 
   return (
     <Fragment>
-      <div
-        className={clsx(
-          "flex flex-col overflow-hidden border rounded-[12px]",
-          customClassName,
-        )}
-      >
+      <div className={clsx('flex flex-col overflow-hidden border rounded-[12px]', customClassName)}>
         {contentHead}
         <div
           ref={bodyRef}
           className={clsx(
-            "overflow-hidden",
+            'overflow-hidden',
             withoutTransition
-              ? `transition-all duration-300 ease-in-out opacity-0 h-0 invisible ${isOpen ? "opacity-100 h-auto visible" : ""}`
-              : `opacity-0 pointer-events-none transition-[height,opacity] duration-300 ease-in-out ${isOpen ? "opacity-100 pointer-events-auto" : ""}`,
+              ? `transition-all duration-300 ease-in-out opacity-0 h-0 invisible ${isOpen ? 'opacity-100 h-auto visible' : ''}`
+              : `opacity-0 pointer-events-none transition-[height,opacity] duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : ''}`
           )}
         >
           <div ref={contentRef} className="flex flex-col gap-2">
@@ -79,5 +74,5 @@ export const DropDownCard: FC<Props> = ({
         </div>
       </div>
     </Fragment>
-  );
-};
+  )
+}

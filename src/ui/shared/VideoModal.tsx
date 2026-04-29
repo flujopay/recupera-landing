@@ -1,35 +1,29 @@
-"use client";
+'use client'
 
-import { useModalStore } from "@/lib/store/modalStore";
-import { AssetIcon } from "@/lib/utils/assets/icon";
-import { useState } from "react";
-import Button from "./Button";
+import { useModalStore } from '@/lib/store/modalStore'
+import { AssetIcon } from '@/lib/utils/assets/icon'
+import { useState } from 'react'
+import Button from './Button'
 
 type VideoModalProps = {
-  videoSrc: string;
-  title: string;
-  description: string;
-};
+  videoSrc: string
+  title: string
+  description: string
+}
 
-export const VideoModal: React.FC<VideoModalProps> = ({
-  videoSrc,
-  title,
-  description,
-}) => {
-  const { hideModal } = useModalStore();
-  const [isLoading, setIsLoading] = useState(true);
+export const VideoModal: React.FC<VideoModalProps> = ({ videoSrc, title, description }) => {
+  const { hideModal } = useModalStore()
+  const [isLoading, setIsLoading] = useState(true)
 
   const onRedirectHubspot = () => {
-    window.open("https://meetings.hubspot.com/francisco502", "_blank");
-  };
+    window.open('https://meetings.hubspot.com/francisco502', '_blank')
+  }
 
   return (
     <div className="w-full h-full flex flex-col gap-8 p-6">
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <p className="text-brand-primary-dark text-xl md:text-3xl font-bold ">
-            {title}
-          </p>
+          <p className="text-brand-primary-dark text-xl md:text-3xl font-bold ">{title}</p>
           <AssetIcon.plus
             className="rotate-45 cursor-pointer mt-2"
             width={20}
@@ -50,23 +44,23 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 linear-gradient(0deg, rgba(30, 64, 175, 0.5) 30%, transparent 0 70%, rgba(30, 64, 175, 1) 0) 50%/8% 100%,
                 linear-gradient(90deg, rgba(30, 64, 175, 0.25) 30%, transparent 0 70%, rgba(30, 64, 175, 0.75) 0) 50%/100% 8%
               `,
-                backgroundRepeat: "no-repeat",
-                animationDuration: "1s",
-                animationTimingFunction: "steps(12)",
+                backgroundRepeat: 'no-repeat',
+                animationDuration: '1s',
+                animationTimingFunction: 'steps(12)',
               }}
             >
               <div
                 className="absolute inset-0 rounded-full opacity-[0.915]"
                 style={{
-                  background: "inherit",
-                  transform: "rotate(30deg)",
+                  background: 'inherit',
+                  transform: 'rotate(30deg)',
                 }}
               />
               <div
                 className="absolute inset-0 rounded-full opacity-[0.83]"
                 style={{
-                  background: "inherit",
-                  transform: "rotate(60deg)",
+                  background: 'inherit',
+                  transform: 'rotate(60deg)',
                 }}
               />
             </div>
@@ -86,9 +80,9 @@ export const VideoModal: React.FC<VideoModalProps> = ({
         <video
           className="max-w-full max-h-full w-auto h-auto"
           style={{
-            backgroundColor: "transparent",
+            backgroundColor: 'transparent',
             opacity: isLoading ? 0 : 1,
-            transition: "opacity 0.3s ease-in-out",
+            transition: 'opacity 0.3s ease-in-out',
           }}
           autoPlay
           loop
@@ -106,5 +100,5 @@ export const VideoModal: React.FC<VideoModalProps> = ({
         <Button text="Agenda tu demo" onClick={onRedirectHubspot} />
       </div>
     </div>
-  );
-};
+  )
+}

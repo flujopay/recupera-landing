@@ -1,31 +1,27 @@
-import { Calendar, DollarSign, Globe, MessageCircleOff } from "lucide-react";
+import { Calendar, DollarSign, Globe, MessageCircleOff } from 'lucide-react'
 
 const useCases = [
   {
-    title: "Facturas +90 días vencidas",
-    description:
-      "Clientes corporativos con pagos atrasados que requieren negociación profesional.",
+    title: 'Facturas +90 días vencidas',
+    description: 'Clientes corporativos con pagos atrasados que requieren negociación profesional.',
     icon: Calendar,
   },
   {
-    title: "Deudores que no responden",
-    description:
-      "Cuentas donde la comunicación se cortó pero la relación vale la pena preservar.",
+    title: 'Deudores que no responden',
+    description: 'Cuentas donde la comunicación se cortó pero la relación vale la pena preservar.',
     icon: MessageCircleOff,
   },
   {
-    title: "Montos altos",
-    description:
-      "Facturas donde el expertise humano marca la diferencia en recuperación.",
+    title: 'Montos altos',
+    description: 'Facturas donde el expertise humano marca la diferencia en recuperación.',
     icon: DollarSign,
   },
   {
-    title: "Expansión LATAM",
-    description:
-      "Empresas operando en múltiples países que necesitan gestión con conocimiento local.",
+    title: 'Expansión LATAM',
+    description: 'Empresas operando en múltiples países que necesitan gestión con conocimiento local.',
     icon: Globe,
   },
-];
+]
 
 export const UseCases = () => {
   return (
@@ -39,7 +35,7 @@ export const UseCases = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {useCases.map((useCase, index) => {
-            const Icon = useCase.icon;
+            const Icon = useCase.icon
             return (
               <div
                 key={index}
@@ -50,17 +46,15 @@ export const UseCases = () => {
                     <Icon className="h-6 w-6 text-brand-primary" />
                   </div>
                   <div>
-                    <h3 className="text-brand-primary-dark text-xl font-bold mb-2">
-                      {useCase.title}
-                    </h3>
+                    <h3 className="text-brand-primary-dark text-xl font-bold mb-2">{useCase.title}</h3>
                     <p className="text-slate-600">{useCase.description}</p>
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

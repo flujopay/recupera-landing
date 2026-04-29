@@ -1,7 +1,7 @@
-import { TermPage } from "@/ui/term/TermPage";
+import { TermPage } from '@/ui/term/TermPage'
 
 const Page = () => {
-  return <TermPage />;
-};
+  return <TermPage />
+}
 
-export default Page;
+export default Page

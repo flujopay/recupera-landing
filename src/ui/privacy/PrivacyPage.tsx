@@ -1,6 +1,6 @@
-import { Footer } from "@/ui/layout/Footer";
-import { Header } from "@/ui/layout/Header";
-import { PrivacyContent } from "./sections/PrivacyContent";
+import { Footer } from '@/ui/layout/Footer'
+import { Header } from '@/ui/layout/Header'
+import { PrivacyContent } from './sections/PrivacyContent'
 
 export const PrivacyPage = () => {
   return (
@@ -9,5 +9,5 @@ export const PrivacyPage = () => {
       <PrivacyContent />
       <Footer />
     </div>
-  );
-};
+  )
+}

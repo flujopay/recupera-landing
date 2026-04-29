@@ -1,48 +1,45 @@
-import { getCountriesServer } from "@/lib/services/countryService.server";
-import { getIpInfoServer } from "@/lib/services/ipConfigService.server";
-import { ModalRenderer } from "@/ui/shared/ModalRender";
-import { Toast } from "@/ui/shared/Toast";
-import Whatsapp from "@/ui/shared/WhatsApp";
-import type { Metadata } from "next";
-import Script from "next/script";
-import { Suspense } from "react";
-import { adobeCleanFont, canaroFont, caslonFont } from "./fonts";
-import "./globals.css";
-import Providers from "./providers";
+import { getCountriesServer } from '@/lib/services/countryService.server'
+import { getIpInfoServer } from '@/lib/services/ipConfigService.server'
+import { ModalRenderer } from '@/ui/shared/ModalRender'
+import { Toast } from '@/ui/shared/Toast'
+import Whatsapp from '@/ui/shared/WhatsApp'
+import type { Metadata } from 'next'
+import Script from 'next/script'
+import { Suspense } from 'react'
+import { adobeCleanFont, canaroFont, caslonFont } from './fonts'
+import './globals.css'
+import Providers from './providers'
 
 export const metadata: Metadata = {
-  title: "Recupera - El mejor CRM de cobranza y pagos B2B",
+  title: 'Recupera - El mejor CRM de cobranza y pagos B2B',
   description:
-    "Optimiza tu gestión de cobranza y pagos de facturas con Recupera, el CRM B2B que simplifica procesos, mejora la eficiencia y acelera tus ingresos.",
+    'Optimiza tu gestión de cobranza y pagos de facturas con Recupera, el CRM B2B que simplifica procesos, mejora la eficiencia y acelera tus ingresos.',
   keywords:
-    "CRM cobranza, pagos B2B, facturación, gestión de pagos, CRM empresas, automatización de cobranza, Recupera",
-  authors: [{ name: "Recupera" }],
+    'CRM cobranza, pagos B2B, facturación, gestión de pagos, CRM empresas, automatización de cobranza, Recupera',
+  authors: [{ name: 'Recupera' }],
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Recupera - El mejor CRM de cobranza y pagos B2B",
+    title: 'Recupera - El mejor CRM de cobranza y pagos B2B',
     description:
-      "Con Recupera, simplifica y acelera la gestión de tus cobros y pagos. Una solución para empresas enfocada en eficiencia y resultados.",
-    type: "website",
-    url: "https://recupera.somossena.com",
-    images: ["https://recupera.somossena.com/sena-crm-lite.jpg"],
-    siteName: "Recupera",
-    locale: "es_PE",
+      'Con Recupera, simplifica y acelera la gestión de tus cobros y pagos. Una solución para empresas enfocada en eficiencia y resultados.',
+    type: 'website',
+    url: 'https://recupera.somossena.com',
+    images: ['https://recupera.somossena.com/sena-crm-lite.jpg'],
+    siteName: 'Recupera',
+    locale: 'es_PE',
   },
   other: {
-    "facebook-domain-verification": "tyjmxihsgkrx666ql4rwmnhsftl6hv",
+    'facebook-domain-verification': 'tyjmxihsgkrx666ql4rwmnhsftl6hv',
   },
-};
+}
 
 export default async function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-  const [ipInfo, countries] = await Promise.all([
-    getIpInfoServer(),
-    getCountriesServer(),
-  ]);
-  const country = ipInfo?.country || null;
+  const [ipInfo, countries] = await Promise.all([getIpInfoServer(), getCountriesServer()])
+  const country = ipInfo?.country || null
 
   return (
     <Providers country={country} countries={countries}>
@@ -97,18 +94,15 @@ export default async function RootLayout({
               src="https://www.googletagmanager.com/ns.html?id=GTM-T2QDCJ6C"
               height="0"
               width="0"
-              style={{ display: "none", visibility: "hidden" }}
+              style={{ display: 'none', visibility: 'hidden' }}
             ></iframe>
           </noscript>
           <Suspense>{children}</Suspense>
           <ModalRenderer />
           <Toast />
-          <Whatsapp
-            message="Hola, vi su web y quiero saber más sobre Recupera y cómo funciona."
-            animated
-          />
+          <Whatsapp message="Hola, vi su web y quiero saber más sobre Recupera y cómo funciona." animated />
         </body>
       </html>
     </Providers>
-  );
+  )
 }

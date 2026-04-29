@@ -39,7 +39,6 @@ export const adobeCleanFont = localFont({
   display: 'swap',
 })
 
-
 export const caslonFont = localFont({
   src: [
     {
