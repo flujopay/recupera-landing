@@ -4,6 +4,7 @@ import { ModalRenderer } from '@/ui/shared/ModalRender'
 import { Toast } from '@/ui/shared/Toast'
 import Whatsapp from '@/ui/shared/WhatsApp'
 import type { Metadata } from 'next'
+import { GoogleTagManager } from '@next/third-parties/google'
 import Script from 'next/script'
 import { Suspense } from 'react'
 import { adobeCleanFont, canaroFont, caslonFont } from './fonts'
@@ -44,58 +45,57 @@ export default async function RootLayout({
   return (
     <Providers country={country} countries={countries}>
       <html lang="es" dir="ltr">
+        <GoogleTagManager gtmId="GTM-M9XSZFKQ" />
         <head>
-          {/* Google Tag Manager Script (carga diferida) */}
-          <Script id="gtm-script" strategy="lazyOnload">
-            {`
-                      (function(w,d,s,l,i){
-                          w[l]=w[l]||[];
-                          w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-                          var f=d.getElementsByTagName(s)[0],
-                          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-                          j.async=true;
-                          j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                          f.parentNode.insertBefore(j,f);
-                          })(window,document,'script','dataLayer','GTM-T2QDCJ6C');
-                          `}
-          </Script>
-          {/* Google Ads */}
+          {/* Google Ads — Recupera (AW-17962976949 / conv: sCCeCNfunKccELWNtfVC) */}
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=AW-17962976949"
             strategy="afterInteractive"
           />
-          <Script id="google-ads-config" strategy="afterInteractive">
+          <Script id="google-ads-recupera" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'AW-17962976949');
+              gtag('config', 'G-RVBY3W52WS');
             `}
           </Script>
+          {/* Meta Pixel — Recupera (2395310237641682) */}
+          <Script id="meta-pixel-recupera" strategy="afterInteractive">
+            {`
+              !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+              n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+              (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '2395310237641682');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+          <noscript>
+            <img height="1" width="1" style={{ display: 'none' }}
+              src="https://www.facebook.com/tr?id=2395310237641682&ev=PageView&noscript=1" alt="" />
+          </noscript>
         </head>
         <body
           className={`${canaroFont.variable} ${adobeCleanFont.variable} ${caslonFont.variable} antialiased font-adobe`}
         >
-          {/* Deshabilitar debugger statements */}
           <Script id="disable-debugger" strategy="beforeInteractive">
             {`
               (function() {
                   const originalDebugger = window.debugger;
-                  window.debugger = function() {
-                      // No hacer nada, deshabilitar pausas del debugger
-                      return;
-                  };
+                  window.debugger = function() { return; };
               })();
             `}
           </Script>
-          {/* Fallback para Google Tag Manager */}
           <noscript>
             <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-T2QDCJ6C"
+              src="https://www.googletagmanager.com/ns.html?id=GTM-M9XSZFKQ"
               height="0"
               width="0"
               style={{ display: 'none', visibility: 'hidden' }}
-            ></iframe>
+            />
           </noscript>
           <Suspense>{children}</Suspense>
           <ModalRenderer />
