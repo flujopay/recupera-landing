@@ -19,6 +19,7 @@
     "lint-staged": "lint-staged --no-stash"
   },
   "dependencies": {
+    "@next/third-parties": "latest",
     "@svgr/webpack": "^8.1.0",
     "@tanstack/react-query": "^5.90.20",
     "axios": "^1.13.5",
