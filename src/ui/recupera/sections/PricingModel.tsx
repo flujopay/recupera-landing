@@ -69,6 +69,10 @@ export const PricingModel = () => {
                 <CheckCircle className="h-5 w-5 text-brand-primary" />
                 <span className="font-semibold">Transparencia total</span>
               </div>
+              <div className="flex items-center gap-2 text-brand-primary-dark">
+                <CheckCircle className="h-5 w-5 text-brand-primary" />
+                <span className="font-semibold">85% de recupero promedio</span>
+              </div>
             </div>
           </div>
 

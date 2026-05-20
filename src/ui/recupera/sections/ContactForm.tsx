@@ -145,7 +145,7 @@ export const ContactForm = () => {
         <div className="flex flex-1">
           <div className="max-w-full text-left">
             <h2 className="text-brand-primary-dark text-3xl md:text-6xl font-extrabold leading-tight">
-              Estás a un paso de cobrar <span className="text-brand-primary font-caslon">mejor</span>
+              Evalúa tu cartera gratis. <span className="text-brand-primary font-caslon">Sin compromiso.</span>
               <span className="text-brand-secondary font-caslon">.</span>
             </h2>
           </div>

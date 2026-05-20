@@ -21,16 +21,11 @@ const stats = [
     label: 'años de experiencia',
     icon: Award,
   },
-  // {
-  //   value: "$XXM",
-  //   label: "recuperados mensualmente",
-  //   icon: DollarSign,
-  // },
-  // {
-  //   value: "XX%",
-  //   label: "tasa promedio de recuperación",
-  //   icon: TrendingUp,
-  // },
+  {
+    value: '85%',
+    label: 'tasa de recupero promedio',
+    icon: TrendingUp,
+  },
 ]
 
 export const Credibility = () => {
@@ -39,14 +34,14 @@ export const Credibility = () => {
       <div className="max-w-[1280px] mx-auto px-4 md:px-12">
         <div className="text-left mb-12">
           <h2 className="text-brand-primary-dark text-3xl md:text-4xl font-extrabold mb-4">
-            Respaldados por el líder en <span className="text-brand-primary">cobranza LATAM</span>
+            Recsa: 40 años recuperando cartera en <span className="text-brand-primary">15 países</span>
           </h2>
           <p className="font-adobe text-black mt-2 text-lg leading-5">
             Recsa lleva más de 40 años recuperando cartera compleja para empresas de todos los tamaños
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {stats.map((stat, index) => {
             const Icon = stat.icon
             return (

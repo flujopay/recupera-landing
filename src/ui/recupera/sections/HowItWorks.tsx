@@ -8,14 +8,14 @@ const steps = [
     icon: FileSearch,
   },
   {
-    title: 'Estrategia Personalizada',
-    description: 'Diseñamos plan de recuperación considerando industria, relación con deudores y objetivos.',
+    title: 'Plan de Recuperación',
+    description: 'Definimos si iniciamos con gestión preventiva, publicación DICOM o gestión post-mora, según el estado de cada cuenta.',
     timeline: '48 horas',
     icon: Lightbulb,
   },
   {
     title: 'Gestión Humana + IA',
-    description: 'Equipo especializado negocia acuerdos de pago manteniendo profesionalismo.',
+    description: 'Nuestro equipo contacta a tus deudores con publicación DICOM cuando corresponde. Preservamos la relación donde es posible.',
     timeline: 'Continuo',
     icon: Users,
   },
@@ -33,7 +33,7 @@ export const HowItWorks = () => {
       <div className="max-w-[1280px] mx-auto px-4 md:px-12">
         <div className="text-left mb-12">
           <h2 className="text-brand-primary-dark text-3xl md:text-4xl font-extrabold mb-4">
-            De cartera vencida a <span className="text-brand-primary">dinero recuperado</span>
+            ¿Cómo recuperamos <span className="text-brand-primary">tu cartera?</span>
           </h2>
           <p className="font-adobe text-black mt-2 text-lg leading-5">
             Proceso probado con cientos de empresas B2B en 15 países de LATAM
