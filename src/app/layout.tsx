@@ -11,22 +11,22 @@ import './globals.css'
 import Providers from './providers'
 
 export const metadata: Metadata = {
-  title: 'Recupera - El mejor CRM de cobranza y pagos B2B',
+  title: 'Recupera - Cobranza Online B2B Chile | Pagas Solo Si Recuperamos',
   description:
-    'Optimiza tu gestión de cobranza y pagos de facturas con Recupera, el CRM B2B que simplifica procesos, mejora la eficiencia y acelera tus ingresos.',
+    'Cobranza B2B con publicación DICOM en Chile. Solo pagas si recuperamos tu cartera vencida o facturas impagas. 85% de recupero promedio. Respaldados por Recsa.',
   keywords:
-    'CRM cobranza, pagos B2B, facturación, gestión de pagos, CRM empresas, automatización de cobranza, Recupera',
+    'cobranza online, cobrar facturas vencidas, facturas impagas, cobranza b2b chile, publicacion dicom, recuperar cartera vencida, externalizar cobranza b2b, servicio de cobranza empresas',
   authors: [{ name: 'Recupera' }],
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Recupera - El mejor CRM de cobranza y pagos B2B',
+    title: 'Recupera - Cobranza B2B | Pagas Solo Si Recuperamos',
     description:
-      'Con Recupera, simplifica y acelera la gestión de tus cobros y pagos. Una solución para empresas enfocada en eficiencia y resultados.',
+      'Solo pagas si recuperamos. Cobranza B2B con publicación DICOM en Chile. 85% de recupero promedio. Sin riesgo para tu empresa.',
     type: 'website',
     url: 'https://recupera.somossena.com',
     images: ['https://recupera.somossena.com/sena-crm-lite.jpg'],
     siteName: 'Recupera',
-    locale: 'es_PE',
+    locale: 'es_CL',
   },
   other: {
     'facebook-domain-verification': 'tyjmxihsgkrx666ql4rwmnhsftl6hv',
@@ -58,6 +58,55 @@ export default async function RootLayout({
                           f.parentNode.insertBefore(j,f);
                           })(window,document,'script','dataLayer','GTM-T2QDCJ6C');
                           `}
+          </Script>
+          {/* FAQ Schema */}
+          <Script id="faq-schema" type="application/ld+json" strategy="beforeInteractive">
+            {JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                {
+                  '@type': 'Question',
+                  name: '¿Cuánto toma ver resultados?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Primeros contactos en 48-72h. Acuerdos típicamente en 2 semanas.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: '¿Qué pasa si no recuperan nada?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'No pagas nada. Modelo 100% contingente: solo cobramos un porcentaje sobre el monto efectivamente recuperado.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: '¿Se preservan las relaciones comerciales?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Sí. Nuestro enfoque profesional preserva los vínculos comerciales. 40 años de experiencia Recsa en gestión de cobranza B2B.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: '¿Con qué tipo de cartera trabajan?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Trabajamos con cartera vencida de +60 días, incluyendo facturas impagas y cuentas por cobrar B2B. Para gestión preventiva antes del vencimiento, tenemos otra solución — consultanos.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: '¿En qué países operan?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: '15 países en LATAM: Chile, Perú, Colombia, México, Argentina, Brasil, y más. Presencia local con conocimiento del mercado en cada país.',
+                  },
+                },
+              ],
+            })}
           </Script>
           {/* Google Ads */}
           <Script
