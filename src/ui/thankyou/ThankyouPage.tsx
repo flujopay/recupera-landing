@@ -25,7 +25,6 @@ export const ThankyouPage = () => {
       event: 'conversion_event_signup_2',
       origin: 'recupera',
     })
-    }
     if (window.fbq) {
       window.fbq('track', 'Lead', { content_name: 'recupera' })
     }
