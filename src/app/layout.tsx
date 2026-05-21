@@ -2,7 +2,6 @@ import { getCountriesServer } from '@/lib/services/countryService.server'
 import { getIpInfoServer } from '@/lib/services/ipConfigService.server'
 import { ModalRenderer } from '@/ui/shared/ModalRender'
 import { Toast } from '@/ui/shared/Toast'
-import Whatsapp from '@/ui/shared/WhatsApp'
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Suspense } from 'react'
@@ -157,7 +156,6 @@ export default async function RootLayout({
           <Suspense>{children}</Suspense>
           <ModalRenderer />
           <Toast />
-          <Whatsapp message="Hola, vi su web y quiero saber más sobre Recupera y cómo funciona." animated />
         </body>
       </html>
     </Providers>

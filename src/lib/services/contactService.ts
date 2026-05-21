@@ -17,19 +17,3 @@ export const usePostContactForm = () => {
     isLoadingPostContactForm,
   }
 }
-
-const postTestn8n = async (data: any) => {
-  const res = await api.post('https://n8n.somossena.com/webhook/leads', data)
-  return res.data
-}
-
-export const usePostTestn8n = () => {
-  const { mutate: postTestn8nMutate, isPending: isLoadingPostTestn8n } = useMutation({
-    mutationFn: (data: any) => postTestn8n(data),
-  })
-
-  return {
-    postTestn8nMutate,
-    isLoadingPostTestn8n,
-  }
-}
