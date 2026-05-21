@@ -1,6 +1,6 @@
 'use client'
 
-import { usePostContactForm, usePostTestn8n } from '@/lib/services/contactService'
+import { usePostContactForm } from '@/lib/services/contactService'
 import { useCountries } from '@/lib/services/countryService'
 import { useCurrencyStore } from '@/lib/store/useCurrencyStore'
 import { useToastStore } from '@/lib/store/useToastStore'
@@ -31,8 +31,7 @@ type FormData = {
 }
 
 export const ContactForm = () => {
-  const { postTestn8nMutate, isLoadingPostTestn8n } = usePostTestn8n()
-  const { postContactFormMutate } = usePostContactForm()
+  const { postContactFormMutate, isLoadingPostContactForm } = usePostContactForm()
   const { data: countries = [] } = useCountries()
   const { ipCurrency } = useCurrencyStore()
   const { showToast } = useToastStore()
@@ -100,13 +99,6 @@ export const ContactForm = () => {
     const pais = countries?.find((c) => c.country === countrySelect)?.country_code || ''
     const telefonoConPrefijo = (countrySelect || '') + data.whatsapp
 
-    // Payload para n8n webhook
-    const payload = {
-      ...data,
-      codigo_pais: countrySelect || '',
-      pais,
-    }
-
     // Payload para API de contacto
     const contactPayload: ContactFormRequest = {
       nombre: data.nombre,
@@ -125,9 +117,7 @@ export const ContactForm = () => {
       utmContent: utmContent || undefined,
     }
 
-    // Llamar ambas APIs
-    postContactFormMutate(contactPayload)
-    postTestn8nMutate(payload, {
+    postContactFormMutate(contactPayload, {
       onSuccess: () => {
         if (window.gtag) {
           window.gtag('event', 'conversion', { send_to: 'AW-17962976949/sCCeCNfunKccELWNtfVC' })
@@ -353,11 +343,11 @@ export const ContactForm = () => {
 
             <Button
               type="submit"
-              text={isLoadingPostTestn8n ? 'Enviando...' : 'Enviar'}
+              text={isLoadingPostContactForm ? 'Enviando...' : 'Enviar'}
               variant="primaryFilled"
               size="md"
               className="w-[200px]"
-              disabled={isLoadingPostTestn8n}
+              disabled={isLoadingPostContactForm}
             />
           </form>
         </div>
