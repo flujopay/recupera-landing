@@ -18,6 +18,14 @@ export const metadata: Metadata = {
     'cobranza online, cobrar facturas vencidas, facturas impagas, cobranza b2b chile, publicacion dicom, recuperar cartera vencida, externalizar cobranza b2b, servicio de cobranza empresas',
   authors: [{ name: 'Recupera' }],
   robots: { index: true, follow: true },
+  metadataBase: new URL('https://recupera.somossena.com'),
+  alternates: { canonical: '/' },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Recupera - Cobranza B2B | Pagas Solo Si Recuperamos',
+    description: 'Solo pagas si recuperamos. Cobranza B2B con publicación DICOM en Chile. 85% de recupero promedio.',
+    images: ['https://recupera.somossena.com/sena-crm-lite.jpg'],
+  },
   openGraph: {
     title: 'Recupera - Cobranza B2B | Pagas Solo Si Recuperamos',
     description:
