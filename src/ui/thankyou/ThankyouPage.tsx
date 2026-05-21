@@ -25,8 +25,6 @@ export const ThankyouPage = () => {
       event: 'conversion_event_signup_2',
       origin: 'recupera',
     })
-    if (window.gtag) {
-      window.gtag('event', 'conversion', { send_to: 'AW-17962976949/signup' })
     }
     if (window.fbq) {
       window.fbq('track', 'Lead', { content_name: 'recupera' })

@@ -130,7 +130,7 @@ export const ContactForm = () => {
     postTestn8nMutate(payload, {
       onSuccess: () => {
         if (window.gtag) {
-          window.gtag('event', 'conversion', { send_to: 'AW-17962976949/lead' })
+          window.gtag('event', 'conversion', { send_to: 'AW-17962976949/sCCeCNfunKccELWNtfVC' })
         }
         if (window.fbq) {
           window.fbq('track', 'Lead', { content_name: 'recupera' })
