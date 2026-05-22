@@ -9,9 +9,16 @@ import Button from '@/ui/shared/Button'
 import { Input } from '@/ui/shared/Input'
 import SimpleCountrySelect, { OptionSelect } from '@/ui/shared/SimpleCountrySelect'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
+
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void
+    gtag?: (...args: unknown[]) => void
+  }
+}
 
 type FormData = {
   nombre: string
@@ -29,6 +36,7 @@ export const ContactForm = () => {
   const { data: countries = [] } = useCountries()
   const { ipCurrency } = useCurrencyStore()
   const { showToast } = useToastStore()
+  const router = useRouter()
   const searchParams = useSearchParams()
   const [countrySelect, setCountrySelect] = useState<string | null>(null)
 
@@ -36,6 +44,9 @@ export const ContactForm = () => {
   const utmMedium = searchParams?.get('utm_medium') || null
   const utmCampaign = searchParams?.get('utm_campaign') || null
   const utmContent = searchParams?.get('utm_content') || null
+  const utmTerm = searchParams?.get('utm_term') || null
+  const [gclid, setGclid] = useState<string | null>(null)
+  const [fbclid, setFbclid] = useState<string | null>(null)
 
   const countryOptions = useMemo(() => {
     if (!countries.length) return []
@@ -72,6 +83,14 @@ export const ContactForm = () => {
     }
   }, [ipCurrency])
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const gc = params.get('gclid') || sessionStorage.getItem('gclid')
+    const fb = params.get('fbclid') || sessionStorage.getItem('fbclid')
+    if (gc) { setGclid(gc); sessionStorage.setItem('gclid', gc) }
+    if (fb) { setFbclid(fb); sessionStorage.setItem('fbclid', fb) }
+  }, [])
+
   const {
     control,
     handleSubmit,
@@ -100,7 +119,30 @@ export const ContactForm = () => {
       pais,
     }
 
-    // Payload para API de contacto
+    // Fire-and-forget HubSpot sync
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nombre: data.nombre,
+        apellido: data.apellido,
+        empresa: data.empresa,
+        email: data.email,
+        telefono: telefonoConPrefijo,
+        facturas_pendientes: data.facturas_pendientes,
+        alguien_cobrando: data.alguien_cobrando,
+        utmSource: utmSource ?? undefined,
+        utmMedium: utmMedium ?? undefined,
+        utmCampaign: utmCampaign ?? undefined,
+        utmContent: utmContent ?? undefined,
+        utmTerm: utmTerm ?? undefined,
+        gclid: gclid ?? undefined,
+        fbclid: fbclid ?? undefined,
+        landingPage: window.location.pathname,
+      }),
+    }).catch(() => {})
+
+    // Fire-and-forget Django API sync
     const contactPayload: ContactFormRequest = {
       nombre: data.nombre,
       apellido: data.apellido,
@@ -108,7 +150,7 @@ export const ContactForm = () => {
       telefono: telefonoConPrefijo,
       formOrigin: 'Formulario de Registro',
       countryName: pais,
-      productType: 'main',
+      productType: 'recupera',
       nombreEmpresa: data.empresa,
       mensaje: '',
       howFound: '',
@@ -117,17 +159,18 @@ export const ContactForm = () => {
       utmCampaign: utmCampaign || undefined,
       utmContent: utmContent || undefined,
     }
-
-    // Llamar ambas APIs
     postContactFormMutate(contactPayload)
+
     postTestn8nMutate(payload, {
       onSuccess: () => {
-        showToast({
-          iconType: 'success',
-          message: 'Formulario enviado correctamente',
-          subMessage: 'Gracias, pronto nos pondremos en contacto contigo.',
-        })
+        if (window.gtag) {
+          window.gtag('event', 'conversion', { send_to: 'AW-17962976949/sCCeCNfunKccELWNtfVC' })
+        }
+        if (window.fbq) {
+          window.fbq('track', 'Lead', { content_name: 'recupera' })
+        }
         reset()
+        router.push('/thankyou')
       },
       onError: () => {
         showToast({
@@ -145,7 +188,7 @@ export const ContactForm = () => {
         <div className="flex flex-1">
           <div className="max-w-full text-left">
             <h2 className="text-brand-primary-dark text-3xl md:text-6xl font-extrabold leading-tight">
-              Estás a un paso de cobrar <span className="text-brand-primary font-caslon">mejor</span>
+              Evalúa tu cartera gratis. <span className="text-brand-primary font-caslon">Sin compromiso.</span>
               <span className="text-brand-secondary font-caslon">.</span>
             </h2>
           </div>

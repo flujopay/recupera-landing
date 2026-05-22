@@ -8,12 +8,12 @@ const useCases = [
   },
   {
     title: 'Deudores que no responden',
-    description: 'Cuentas donde la comunicación se cortó pero la relación vale la pena preservar.',
+    description: 'Clientes que dejaron de responder. La publicación en DICOM reactiva la conversación.',
     icon: MessageCircleOff,
   },
   {
-    title: 'Montos altos',
-    description: 'Facturas donde el expertise humano marca la diferencia en recuperación.',
+    title: 'Facturas de alto valor sin gestión activa',
+    description: 'Cuando el monto justifica externalizar con especialistas que trabajan solo a contingencia.',
     icon: DollarSign,
   },
   {
@@ -29,7 +29,7 @@ export const UseCases = () => {
       <div className="max-w-[1280px] mx-auto px-4 md:px-12">
         <div className="text-left mb-12">
           <h2 className="text-brand-primary-dark text-3xl md:text-4xl font-extrabold mb-4">
-            ¿En qué casos <span className="text-brand-primary">funciona?</span>
+            ¿Tu empresa está en <span className="text-brand-primary">alguno de estos casos?</span>
           </h2>
         </div>
 

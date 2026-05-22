@@ -22,7 +22,7 @@ export const FinalCTA = () => {
       <div className="max-w-[1280px] mx-auto px-4 md:px-12">
         <div className="text-left max-w-3xl mb-12">
           <h2 className="text-brand-primary-dark text-3xl md:text-4xl font-extrabold mb-4">
-            Recupera lo que creías <span className="text-brand-primary">perdido</span>
+            Evaluación gratuita de tu cartera. <span className="text-brand-primary">Resultado en 48h.</span>
           </h2>
           <p className="font-adobe text-black mt-2 text-lg leading-5">
             Sin riesgo. Sin costo inicial. Solo pagas por lo que recuperamos.

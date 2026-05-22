@@ -22,7 +22,7 @@ export const ThankyouPage = () => {
     }
     window.dataLayer.push({
       event: 'conversion_event_signup_2',
-      origin: 'main',
+      origin: 'recupera',
     })
     if (window.fbq) {
       window.fbq('track', 'Lead')
