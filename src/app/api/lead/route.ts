@@ -21,13 +21,13 @@ type LeadPayload = {
 
 const HS_API = 'https://api.hubapi.com'
 const OWNER_FRANCISCO = '89319447'
-const PRODUCT_LIST_ID = '363'
+const PRODUCT_LIST_ID = '218'
 const INTERES_DEL_PRODUCTO = 'Recupero Plus'
 
 function mapOrigen(utmSource?: string): string {
   const src = (utmSource ?? '').toLowerCase()
   if (src === 'google' || src === 'cpc') return 'Google'
-  if (src === 'facebook' || src === 'meta' || src === 'fb') return 'true'
+  if (src === 'facebook' || src === 'meta' || src === 'fb') return 'Meta'
   if (src === 'linkedin') return 'LinkedIn'
   return 'Orgánico'
 }
