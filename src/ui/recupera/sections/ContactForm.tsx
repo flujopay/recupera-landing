@@ -86,8 +86,14 @@ export const ContactForm = () => {
     const params = new URLSearchParams(window.location.search)
     const gc = params.get('gclid') || sessionStorage.getItem('gclid')
     const fb = params.get('fbclid') || sessionStorage.getItem('fbclid')
-    if (gc) { setGclid(gc); sessionStorage.setItem('gclid', gc) }
-    if (fb) { setFbclid(fb); sessionStorage.setItem('fbclid', fb) }
+    if (gc) {
+      setGclid(gc)
+      sessionStorage.setItem('gclid', gc)
+    }
+    if (fb) {
+      setFbclid(fb)
+      sessionStorage.setItem('fbclid', fb)
+    }
   }, [])
 
   const {
@@ -151,12 +157,6 @@ export const ContactForm = () => {
     }
     postContactFormMutate(contactPayload, {
       onSuccess: () => {
-        if (window.gtag) {
-          window.gtag('event', 'conversion', { send_to: 'AW-17962976949/sCCeCNfunKccELWNtfVC' })
-        }
-        if (window.fbq) {
-          window.fbq('track', 'Lead', { content_name: 'recupera' })
-        }
         showToast({
           iconType: 'success',
           message: 'Formulario enviado correctamente',
@@ -181,7 +181,8 @@ export const ContactForm = () => {
         <div className="flex flex-1">
           <div className="max-w-full text-left">
             <h2 className="text-brand-primary-dark text-3xl md:text-6xl font-extrabold leading-tight">
-              Evalúa tu cartera gratis. <span className="text-brand-primary font-caslon">Sin compromiso.</span>
+              Evalúa tu cartera gratis.{' '}
+              <span className="text-brand-primary font-caslon">Sin compromiso.</span>
               <span className="text-brand-secondary font-caslon">.</span>
             </h2>
           </div>
