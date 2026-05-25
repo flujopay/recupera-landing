@@ -114,7 +114,6 @@ export default async function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'AW-17962976949');
-              gtag('config', 'G-RVBY3W52WS');
             `}
           </Script>
           {/* Meta Pixel — Recupera (2395310237641682) */}
