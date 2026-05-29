@@ -1995,6 +1995,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+
+"@next/third-parties@npm:^16.2.2":
+  version: 16.2.2
+  resolution: "@next/third-parties@npm:16.2.2"
+  dependencies:
+    third-party-capital: "npm:1.0.20"
+  peerDependencies:
+    next: ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0-beta.0
+    react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
+  checksum: 10c0/d9740e078f3ab8d1de573c2490ad7f59d26bd99fe61ccf68b074177505398bf13e05055d7560882c69300a38630c9982139c54b074220a72552bd048d72beb00
+  languageName: node
+  linkType: hard
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -7977,6 +7989,13 @@ __metadata:
   version: 2.3.0
   resolution: "tapable@npm:2.3.0"
   checksum: 10c0/cb9d67cc2c6a74dedc812ef3085d9d681edd2c1fa18e4aef57a3c0605fdbe44e6b8ea00bd9ef21bc74dd45314e39d31227aa031ebf2f5e38164df514136f2681
+  languageName: node
+  linkType: hard
+
+"third-party-capital@npm:1.0.20":
+  version: 1.0.20
+  resolution: "third-party-capital@npm:1.0.20"
+  checksum: 10c0/7f45ff156ec9d7e2957a5b39061be22b780ffbd2d93c127252d908e2bff6cdd09f827a95909d457c8096e036f155006a38e355a06ee11cb6d63c7f4b150bbfb0
   languageName: node
   linkType: hard
 
