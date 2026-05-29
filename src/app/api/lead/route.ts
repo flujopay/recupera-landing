@@ -24,7 +24,9 @@ const OWNER_FRANCISCO = '89319447'
 const PRODUCT_LIST_ID = '363'
 const INTERES_DEL_PRODUCTO = 'Recupero Plus'
 
-function mapOrigen(utmSource?: string): string {
+function mapOrigen(utmSource?: string, gclid?: string, fbclid?: string): string {
+  if (gclid) return 'Google'
+  if (fbclid) return 'Meta'
   const src = (utmSource ?? '').toLowerCase()
   if (src === 'google' || src === 'cpc') return 'Google'
   if (src === 'facebook' || src === 'meta' || src === 'fb') return 'Meta'
@@ -79,8 +81,11 @@ async function findContactByEmail(token: string, email: string): Promise<string 
 
 async function upsertContact(token: string, body: LeadPayload): Promise<string> {
   const prioridad = calcPrioridad(body.facturas_pendientes, body.alguien_cobrando)
-  const origen = mapOrigen(body.utmSource)
-  const fuente = body.utmSource ? 'Ads' : 'Orgánico'
+  const origen = mapOrigen(body.utmSource, body.gclid, body.fbclid)
+  const fuente = body.gclid ? 'Google Ads'
+    : body.fbclid ? 'Meta Ads'
+    : body.utmSource ? 'Ads'
+    : 'Orgánico'
 
   const properties: Record<string, string> = {
     firstname: body.nombre,
