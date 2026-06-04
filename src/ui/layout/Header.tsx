@@ -627,7 +627,7 @@ export const Header = ({ variant }: Props) => {
                         </div>
 
                         <div className="col-span-8 p-6">
-                          <div className="grid grid-cols-2 gap-2">
+                          <div className="grid grid-cols-3 gap-2">
                             {products.map((it) => (
                               <button
                                 key={it.id}
