@@ -12,6 +12,7 @@ import { FinalCTA } from './sections/FinalCTA'
 import { Hero } from './sections/Hero'
 import { HowItWorks } from './sections/HowItWorks'
 import { PricingModel } from './sections/PricingModel'
+import { StickyMobileCTA } from './sections/StickyMobileCTA'
 import { Testimonials } from './sections/Testimonials'
 import { UseCases } from './sections/UseCases'
 
@@ -52,6 +53,7 @@ export const RecuperaPage = () => {
         <ContactForm />
       </div>
       <Footer />
+      <StickyMobileCTA />
       <Whatsapp
         message="Hola, quiero información sobre Recupera para gestionar mi cartera vencida."
         animated
