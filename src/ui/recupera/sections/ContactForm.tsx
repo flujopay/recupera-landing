@@ -303,22 +303,24 @@ export const ContactForm = () => {
                 control={control}
                 rules={{ required: 'Debes seleccionar una opción' }}
                 render={({ field }) => (
-                  <div className="flex items-center gap-6">
+                  <div className="flex flex-wrap gap-3">
                     {[
                       { value: '1-10', label: '1-10' },
                       { value: '10-50', label: '10-50' },
                       { value: '50+', label: '50+' },
                     ].map((opcion) => (
-                      <label key={opcion.value} className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          value={opcion.value}
-                          checked={field.value === opcion.value}
-                          onChange={() => field.onChange(opcion.value)}
-                          className="w-4 h-4 text-brand-primary accent-brand-primary"
-                        />
-                        <span className="text-sm text-black font-medium">{opcion.label}</span>
-                      </label>
+                      <button
+                        key={opcion.value}
+                        type="button"
+                        onClick={() => field.onChange(opcion.value)}
+                        className={`min-h-[44px] px-5 py-2 rounded-full border-2 text-sm font-semibold transition-colors ${
+                          field.value === opcion.value
+                            ? 'border-brand-primary bg-brand-primary text-white'
+                            : 'border-slate-300 bg-white text-black hover:border-brand-primary'
+                        }`}
+                      >
+                        {opcion.label}
+                      </button>
                     ))}
                   </div>
                 )}
@@ -339,22 +341,24 @@ export const ContactForm = () => {
                 control={control}
                 rules={{ required: 'Debes seleccionar una opción' }}
                 render={({ field }) => (
-                  <div className="flex items-center gap-6">
+                  <div className="flex flex-wrap gap-3">
                     {[
                       { value: 'Sí', label: 'Sí' },
                       { value: 'No', label: 'No' },
                       { value: 'A veces', label: 'A veces' },
                     ].map((opcion) => (
-                      <label key={opcion.value} className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          value={opcion.value}
-                          checked={field.value === opcion.value}
-                          onChange={() => field.onChange(opcion.value)}
-                          className="w-4 h-4 text-brand-primary accent-brand-primary"
-                        />
-                        <span className="text-sm text-black font-medium">{opcion.label}</span>
-                      </label>
+                      <button
+                        key={opcion.value}
+                        type="button"
+                        onClick={() => field.onChange(opcion.value)}
+                        className={`min-h-[44px] px-5 py-2 rounded-full border-2 text-sm font-semibold transition-colors ${
+                          field.value === opcion.value
+                            ? 'border-brand-primary bg-brand-primary text-white'
+                            : 'border-slate-300 bg-white text-black hover:border-brand-primary'
+                        }`}
+                      >
+                        {opcion.label}
+                      </button>
                     ))}
                   </div>
                 )}
@@ -377,10 +381,10 @@ export const ContactForm = () => {
 
             <Button
               type="submit"
-              text={isLoadingPostContactForm ? 'Enviando...' : 'Enviar'}
+              text={isLoadingPostContactForm ? 'Enviando...' : 'Solicitar Evaluación Gratuita'}
               variant="primaryFilled"
               size="md"
-              className="w-[200px]"
+              className="w-full md:w-auto min-h-[44px]"
               disabled={isLoadingPostContactForm}
             />
           </form>
