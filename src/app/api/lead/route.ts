@@ -82,10 +82,7 @@ async function findContactByEmail(token: string, email: string): Promise<string 
 async function upsertContact(token: string, body: LeadPayload): Promise<string> {
   const prioridad = calcPrioridad(body.facturas_pendientes, body.alguien_cobrando)
   const origen = mapOrigen(body.utmSource, body.gclid, body.fbclid)
-  const fuente = body.gclid ? 'Google Ads'
-    : body.fbclid ? 'Meta Ads'
-    : body.utmSource ? 'Ads'
-    : 'Orgánico'
+  const fuente = body.gclid ? 'Google Ads' : body.fbclid ? 'Meta Ads' : body.utmSource ? 'Ads' : 'Orgánico'
 
   const properties: Record<string, string> = {
     firstname: body.nombre,

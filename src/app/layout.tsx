@@ -11,25 +11,26 @@ import './globals.css'
 import Providers from './providers'
 
 export const metadata: Metadata = {
-  title: 'Recupera - Cobranza Online B2B Chile | Pagas Solo Si Recuperamos',
+  title: 'Recupera tu Cartera Vencida | Empresa de Cobranza B2B Chile',
   description:
-    'Cobranza B2B con publicación DICOM en Chile. Solo pagas si recuperamos tu cartera vencida o facturas impagas. 85% de recupero promedio. Respaldados por Recsa.',
+    'Empresa de cobranza B2B en Chile. Recuperamos tu cartera vencida con publicación DICOM. Solo pagas si lo logramos. +85% recupero promedio. Respaldados por Recsa.',
   keywords:
-    'cobranza online, cobrar facturas vencidas, facturas impagas, cobranza b2b chile, publicacion dicom, recuperar cartera vencida, externalizar cobranza b2b, servicio de cobranza empresas',
+    'empresa de cobranza, empresa de cobranza b2b chile, cobranza b2b chile, recuperar cartera vencida, cobranza contingente, cobranza online, cobrar facturas vencidas, facturas impagas, publicacion dicom, externalizar cobranza b2b, servicio de cobranza empresas',
   authors: [{ name: 'Recupera' }],
   robots: { index: true, follow: true },
   metadataBase: new URL('https://recupera.somossena.com'),
   alternates: { canonical: '/' },
   twitter: {
     card: 'summary_large_image',
-    title: 'Recupera - Cobranza B2B | Pagas Solo Si Recuperamos',
-    description: 'Solo pagas si recuperamos. Cobranza B2B con publicación DICOM en Chile. 85% de recupero promedio.',
+    title: 'Recupera tu Cartera Vencida | Empresa de Cobranza B2B Chile',
+    description:
+      'Empresa de cobranza B2B en Chile. Solo pagas si recuperamos tu cartera vencida. +85% de recupero promedio. Respaldados por Recsa.',
     images: ['https://recupera.somossena.com/sena-crm-lite.jpg'],
   },
   openGraph: {
-    title: 'Recupera - Cobranza B2B | Pagas Solo Si Recuperamos',
+    title: 'Recupera tu Cartera Vencida | Empresa de Cobranza B2B Chile',
     description:
-      'Solo pagas si recuperamos. Cobranza B2B con publicación DICOM en Chile. 85% de recupero promedio. Sin riesgo para tu empresa.',
+      'Empresa de cobranza B2B en Chile. Recuperamos tu cartera vencida con publicación DICOM. Solo pagas si lo logramos. +85% recupero. Respaldados por Recsa.',
     type: 'website',
     url: 'https://recupera.somossena.com',
     images: ['https://recupera.somossena.com/sena-crm-lite.jpg'],
@@ -128,8 +129,13 @@ export default async function RootLayout({
             `}
           </Script>
           <noscript>
-            <img height="1" width="1" style={{ display: 'none' }}
-              src="https://www.facebook.com/tr?id=2395310237641682&ev=PageView&noscript=1" alt="" />
+            <img
+              height="1"
+              width="1"
+              style={{ display: 'none' }}
+              src="https://www.facebook.com/tr?id=2395310237641682&ev=PageView&noscript=1"
+              alt=""
+            />
           </noscript>
         </head>
         <body

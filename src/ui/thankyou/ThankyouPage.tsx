@@ -3,6 +3,7 @@
 import { AssetImage } from '@/lib/utils/assets/image'
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -84,36 +85,29 @@ export const ThankyouPage = () => {
                 En breve nos pondremos en contacto contigo para continuar con el proceso.
               </p>
 
-              <p className="text-brand-primary-dark text-center text-sm md:text-base font-bold leading-relaxed mb-8">
-                Si prefieres avanzar de inmediato, puedes agendar tu reunión ahora mismo.
+              <p className="text-brand-primary-dark text-center text-sm md:text-base font-bold leading-relaxed mb-6">
+                Agenda tu reunión de 30 minutos ahora mismo. Sin compromiso.
               </p>
 
-              {/* CTA */}
-              <div className="flex justify-center">
+              {/* HubSpot inline calendar embed */}
+              <div
+                className="meetings-iframe-container w-full min-h-[500px]"
+                data-src="https://meetings.hubspot.com/francisco502?embed=true"
+              />
+              <Script
+                src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"
+                strategy="lazyOnload"
+              />
+
+              {/* Fallback link para mobile si el embed no carga */}
+              <div className="flex justify-center mt-4">
                 <Link
                   href="https://meetings.hubspot.com/francisco502"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 bg-brand-secondary hover:bg-brand-secondary-dark text-white font-bold text-sm md:text-base px-6 py-3.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-brand-secondary/25 hover:scale-[1.02]"
+                  className="text-brand-primary text-sm font-semibold hover:underline"
                 >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
-                    <path d="M16 2V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M8 2V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M3 10H21" stroke="currentColor" strokeWidth="2" />
-                    <path d="M8 14H8.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M12 14H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M16 14H16.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M8 18H8.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M12 18H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                  Agendar mi reunión ahora
+                  Abrir calendario en nueva pestaña
                 </Link>
               </div>
             </div>
