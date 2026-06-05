@@ -174,34 +174,6 @@ async function addToList(token: string, contactId: string): Promise<void> {
   })
 }
 
-async function notifyN8N(body: LeadPayload, prioridad: 'A' | 'B' | 'C'): Promise<void> {
-  const webhookUrl = process.env.N8N_WEBHOOK_RECUPERA_LEAD
-  if (!webhookUrl) return
-
-  try {
-    await fetch(webhookUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        product: 'recupera',
-        nombre: body.nombre,
-        empresa: body.empresa,
-        email: body.email,
-        whatsapp: body.telefono,
-        prioridad,
-        gclid: body.gclid,
-        utm_source: body.utmSource,
-        utm_campaign: body.utmCampaign,
-        landing_page: body.landingPage,
-        _env: process.env.APP_ENV || 'dev',
-      }),
-      signal: AbortSignal.timeout(5000),
-    })
-  } catch (err) {
-    console.error('[N8N] webhook error:', err instanceof Error ? err.message : 'N8N error')
-  }
-}
-
 async function sendMetaCapi(body: LeadPayload): Promise<void> {
   const pixelId = process.env.META_PIXEL_ID
   const capiToken = process.env.META_CAPI_TOKEN
@@ -266,18 +238,15 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Email inválido' }, { status: 400 })
   }
 
-  const prioridad = calcPrioridad(body.facturas_pendientes, body.alguien_cobrando)
   const capiPromise = sendMetaCapi(body)
 
   try {
     const contactId = await upsertContact(token, body)
     await Promise.all([createDeal(token, contactId, body), addToList(token, contactId)])
-    notifyN8N(body, prioridad).catch(() => {})
     await capiPromise
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('[HubSpot] error:', err instanceof Error ? err.message : 'CRM error')
-    notifyN8N(body, prioridad).catch(() => {})
     await capiPromise
     return NextResponse.json({ ok: true, warning: 'CRM sync pendiente' })
   }
