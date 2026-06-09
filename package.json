@@ -16,7 +16,8 @@
     "tsc": "tsc",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
     "prettier": "prettier --write .",
-    "lint-staged": "lint-staged --no-stash"
+    "lint-staged": "lint-staged --no-stash",
+    "test:e2e": "playwright test --reporter=line"
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
@@ -49,6 +50,7 @@
     "lint-staged": "16.4.0",
     "prettier": "3.8.1",
     "tailwindcss": "^4.1.18",
-    "typescript": "^5"
+    "typescript": "^5",
+    "@playwright/test": "1.60.0"
   }
 }
