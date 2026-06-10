@@ -2,26 +2,35 @@ import { getCountriesServer } from '@/lib/services/countryService.server'
 import { getIpInfoServer } from '@/lib/services/ipConfigService.server'
 import { ModalRenderer } from '@/ui/shared/ModalRender'
 import { Toast } from '@/ui/shared/Toast'
-import Whatsapp from '@/ui/shared/WhatsApp'
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { GoogleTagManager } from '@next/third-parties/google'
 import { Suspense } from 'react'
 import { adobeCleanFont, canaroFont, caslonFont } from './fonts'
 import './globals.css'
 import Providers from './providers'
 
 export const metadata: Metadata = {
-  title: 'Recupera - Cobranza Online B2B Chile | Pagas Solo Si Recuperamos',
+  title: 'Recupera tu Cartera Vencida | Empresa de Cobranza B2B Chile',
   description:
-    'Cobranza B2B con publicación DICOM en Chile. Solo pagas si recuperamos tu cartera vencida o facturas impagas. 85% de recupero promedio. Respaldados por Recsa.',
+    'Empresa de cobranza B2B en Chile. Recuperamos tu cartera vencida con publicación DICOM. Solo pagas si lo logramos. +85% recupero promedio. Respaldados por Recsa.',
   keywords:
-    'cobranza online, cobrar facturas vencidas, facturas impagas, cobranza b2b chile, publicacion dicom, recuperar cartera vencida, externalizar cobranza b2b, servicio de cobranza empresas',
+    'empresa de cobranza, empresa de cobranza b2b chile, cobranza b2b chile, recuperar cartera vencida, cobranza contingente, cobranza online, cobrar facturas vencidas, facturas impagas, publicacion dicom, externalizar cobranza b2b, servicio de cobranza empresas',
   authors: [{ name: 'Recupera' }],
   robots: { index: true, follow: true },
-  openGraph: {
-    title: 'Recupera - Cobranza B2B | Pagas Solo Si Recuperamos',
+  metadataBase: new URL('https://recupera.somossena.com'),
+  alternates: { canonical: '/' },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Recupera tu Cartera Vencida | Empresa de Cobranza B2B Chile',
     description:
-      'Solo pagas si recuperamos. Cobranza B2B con publicación DICOM en Chile. 85% de recupero promedio. Sin riesgo para tu empresa.',
+      'Empresa de cobranza B2B en Chile. Solo pagas si recuperamos tu cartera vencida. +85% de recupero promedio. Respaldados por Recsa.',
+    images: ['https://recupera.somossena.com/sena-crm-lite.jpg'],
+  },
+  openGraph: {
+    title: 'Recupera tu Cartera Vencida | Empresa de Cobranza B2B Chile',
+    description:
+      'Empresa de cobranza B2B en Chile. Recuperamos tu cartera vencida con publicación DICOM. Solo pagas si lo logramos. +85% recupero. Respaldados por Recsa.',
     type: 'website',
     url: 'https://recupera.somossena.com',
     images: ['https://recupera.somossena.com/sena-crm-lite.jpg'],
@@ -44,22 +53,8 @@ export default async function RootLayout({
   return (
     <Providers country={country} countries={countries}>
       <html lang="es" dir="ltr">
+        <GoogleTagManager gtmId="GTM-M9XSZFKQ" />
         <head>
-          {/* Google Tag Manager Script (carga diferida) */}
-          <Script id="gtm-script" strategy="lazyOnload">
-            {`
-                      (function(w,d,s,l,i){
-                          w[l]=w[l]||[];
-                          w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-                          var f=d.getElementsByTagName(s)[0],
-                          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-                          j.async=true;
-                          j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                          f.parentNode.insertBefore(j,f);
-                          })(window,document,'script','dataLayer','GTM-T2QDCJ6C');
-                          `}
-          </Script>
-          {/* FAQ Schema */}
           <Script id="faq-schema" type="application/ld+json" strategy="beforeInteractive">
             {JSON.stringify({
               '@context': 'https://schema.org',
@@ -108,12 +103,12 @@ export default async function RootLayout({
               ],
             })}
           </Script>
-          {/* Google Ads */}
+          {/* Google Ads — Recupera (AW-17962976949 / conv: sCCeCNfunKccELWNtfVC) */}
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=AW-17962976949"
             strategy="afterInteractive"
           />
-          <Script id="google-ads-config" strategy="afterInteractive">
+          <Script id="google-ads-recupera" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
@@ -121,35 +116,42 @@ export default async function RootLayout({
               gtag('config', 'AW-17962976949');
             `}
           </Script>
+          {/* Meta Pixel — Recupera (2395310237641682) */}
+          <Script id="meta-pixel-recupera" strategy="afterInteractive">
+            {`
+              !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+              n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+              (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '2395310237641682');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: 'none' }}
+              src="https://www.facebook.com/tr?id=2395310237641682&ev=PageView&noscript=1"
+              alt=""
+            />
+          </noscript>
         </head>
         <body
           className={`${canaroFont.variable} ${adobeCleanFont.variable} ${caslonFont.variable} antialiased font-adobe`}
         >
-          {/* Deshabilitar debugger statements */}
           <Script id="disable-debugger" strategy="beforeInteractive">
             {`
               (function() {
                   const originalDebugger = window.debugger;
-                  window.debugger = function() {
-                      // No hacer nada, deshabilitar pausas del debugger
-                      return;
-                  };
+                  window.debugger = function() { return; };
               })();
             `}
           </Script>
-          {/* Fallback para Google Tag Manager */}
-          <noscript>
-            <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-T2QDCJ6C"
-              height="0"
-              width="0"
-              style={{ display: 'none', visibility: 'hidden' }}
-            ></iframe>
-          </noscript>
           <Suspense>{children}</Suspense>
           <ModalRenderer />
           <Toast />
-          <Whatsapp message="Hola, vi su web y quiero saber más sobre Recupera y cómo funciona." animated />
         </body>
       </html>
     </Providers>

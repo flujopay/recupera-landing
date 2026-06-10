@@ -627,16 +627,16 @@ export const Header = ({ variant }: Props) => {
                         </div>
 
                         <div className="col-span-8 p-6">
-                          <div className="grid grid-cols-2 gap-2">
+                          <div className="flex flex-col gap-1">
                             {products.map((it) => (
                               <button
                                 key={it.id}
                                 onClick={() => goToProduct(it.tab, it.href)}
-                                className="group text-left rounded-xl p-4 hover:bg-gray-50 transition cursor-pointer"
+                                className="group text-left rounded-xl p-3 hover:bg-gray-50 transition cursor-pointer"
                                 role="menuitem"
                               >
-                                <div className="flex items-start gap-3">
-                                  <div className="mt-0.5 h-8 w-8 shrink-0 rounded-lg bg-brand-primary/5 group-hover:bg-brand-primary/10 border border-brand-primary/10 flex items-center justify-center text-brand-primary transition-colors">
+                                <div className="flex items-center gap-3">
+                                  <div className="h-8 w-8 shrink-0 rounded-lg bg-brand-primary/5 group-hover:bg-brand-primary/10 border border-brand-primary/10 flex items-center justify-center text-brand-primary transition-colors">
                                     {it.tab === 'autogestion' ? (
                                       <svg
                                         width="16"

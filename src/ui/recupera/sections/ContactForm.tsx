@@ -1,6 +1,6 @@
 'use client'
 
-import { usePostContactForm, usePostTestn8n } from '@/lib/services/contactService'
+import { usePostContactForm } from '@/lib/services/contactService'
 import { useCountries } from '@/lib/services/countryService'
 import { useCurrencyStore } from '@/lib/store/useCurrencyStore'
 import { useToastStore } from '@/lib/store/useToastStore'
@@ -31,8 +31,7 @@ type FormData = {
 }
 
 export const ContactForm = () => {
-  const { postTestn8nMutate, isLoadingPostTestn8n } = usePostTestn8n()
-  const { postContactFormMutate } = usePostContactForm()
+  const { postContactFormMutate, isLoadingPostContactForm } = usePostContactForm()
   const { data: countries = [] } = useCountries()
   const { ipCurrency } = useCurrencyStore()
   const { showToast } = useToastStore()
@@ -87,8 +86,14 @@ export const ContactForm = () => {
     const params = new URLSearchParams(window.location.search)
     const gc = params.get('gclid') || sessionStorage.getItem('gclid')
     const fb = params.get('fbclid') || sessionStorage.getItem('fbclid')
-    if (gc) { setGclid(gc); sessionStorage.setItem('gclid', gc) }
-    if (fb) { setFbclid(fb); sessionStorage.setItem('fbclid', fb) }
+    if (gc) {
+      setGclid(gc)
+      sessionStorage.setItem('gclid', gc)
+    }
+    if (fb) {
+      setFbclid(fb)
+      sessionStorage.setItem('fbclid', fb)
+    }
   }, [])
 
   const {
@@ -112,14 +117,6 @@ export const ContactForm = () => {
     const pais = countries?.find((c) => c.country === countrySelect)?.country_code || ''
     const telefonoConPrefijo = (countrySelect || '') + data.whatsapp
 
-    // Payload para n8n webhook
-    const payload = {
-      ...data,
-      codigo_pais: countrySelect || '',
-      pais,
-    }
-
-    // Fire-and-forget HubSpot sync
     fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -138,11 +135,10 @@ export const ContactForm = () => {
         utmTerm: utmTerm ?? undefined,
         gclid: gclid ?? undefined,
         fbclid: fbclid ?? undefined,
-        landingPage: window.location.pathname,
+        landingPage: window.location.href,
       }),
     }).catch(() => {})
 
-    // Fire-and-forget Django API sync
     const contactPayload: ContactFormRequest = {
       nombre: data.nombre,
       apellido: data.apellido,
@@ -159,16 +155,13 @@ export const ContactForm = () => {
       utmCampaign: utmCampaign || undefined,
       utmContent: utmContent || undefined,
     }
-    postContactFormMutate(contactPayload)
-
-    postTestn8nMutate(payload, {
+    postContactFormMutate(contactPayload, {
       onSuccess: () => {
-        if (window.gtag) {
-          window.gtag('event', 'conversion', { send_to: 'AW-17962976949/sCCeCNfunKccELWNtfVC' })
-        }
-        if (window.fbq) {
-          window.fbq('track', 'Lead', { content_name: 'recupera' })
-        }
+        showToast({
+          iconType: 'success',
+          message: 'Formulario enviado correctamente',
+          subMessage: 'Gracias, pronto nos pondremos en contacto contigo.',
+        })
         reset()
         router.push('/thankyou')
       },
@@ -188,7 +181,8 @@ export const ContactForm = () => {
         <div className="flex flex-1">
           <div className="max-w-full text-left">
             <h2 className="text-brand-primary-dark text-3xl md:text-6xl font-extrabold leading-tight">
-              Evalúa tu cartera gratis. <span className="text-brand-primary font-caslon">Sin compromiso.</span>
+              Evalúa tu cartera gratis.{' '}
+              <span className="text-brand-primary font-caslon">Sin compromiso.</span>
               <span className="text-brand-secondary font-caslon">.</span>
             </h2>
           </div>
@@ -309,22 +303,24 @@ export const ContactForm = () => {
                 control={control}
                 rules={{ required: 'Debes seleccionar una opción' }}
                 render={({ field }) => (
-                  <div className="flex items-center gap-6">
+                  <div className="flex flex-wrap gap-3">
                     {[
                       { value: '1-10', label: '1-10' },
                       { value: '10-50', label: '10-50' },
                       { value: '50+', label: '50+' },
                     ].map((opcion) => (
-                      <label key={opcion.value} className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          value={opcion.value}
-                          checked={field.value === opcion.value}
-                          onChange={() => field.onChange(opcion.value)}
-                          className="w-4 h-4 text-brand-primary accent-brand-primary"
-                        />
-                        <span className="text-sm text-black font-medium">{opcion.label}</span>
-                      </label>
+                      <button
+                        key={opcion.value}
+                        type="button"
+                        onClick={() => field.onChange(opcion.value)}
+                        className={`min-h-[44px] px-5 py-2 rounded-full border-2 text-sm font-semibold transition-colors ${
+                          field.value === opcion.value
+                            ? 'border-brand-primary bg-brand-primary text-white'
+                            : 'border-slate-300 bg-white text-black hover:border-brand-primary'
+                        }`}
+                      >
+                        {opcion.label}
+                      </button>
                     ))}
                   </div>
                 )}
@@ -345,22 +341,24 @@ export const ContactForm = () => {
                 control={control}
                 rules={{ required: 'Debes seleccionar una opción' }}
                 render={({ field }) => (
-                  <div className="flex items-center gap-6">
+                  <div className="flex flex-wrap gap-3">
                     {[
                       { value: 'Sí', label: 'Sí' },
                       { value: 'No', label: 'No' },
                       { value: 'A veces', label: 'A veces' },
                     ].map((opcion) => (
-                      <label key={opcion.value} className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          value={opcion.value}
-                          checked={field.value === opcion.value}
-                          onChange={() => field.onChange(opcion.value)}
-                          className="w-4 h-4 text-brand-primary accent-brand-primary"
-                        />
-                        <span className="text-sm text-black font-medium">{opcion.label}</span>
-                      </label>
+                      <button
+                        key={opcion.value}
+                        type="button"
+                        onClick={() => field.onChange(opcion.value)}
+                        className={`min-h-[44px] px-5 py-2 rounded-full border-2 text-sm font-semibold transition-colors ${
+                          field.value === opcion.value
+                            ? 'border-brand-primary bg-brand-primary text-white'
+                            : 'border-slate-300 bg-white text-black hover:border-brand-primary'
+                        }`}
+                      >
+                        {opcion.label}
+                      </button>
                     ))}
                   </div>
                 )}
@@ -383,11 +381,11 @@ export const ContactForm = () => {
 
             <Button
               type="submit"
-              text={isLoadingPostTestn8n ? 'Enviando...' : 'Enviar'}
+              text={isLoadingPostContactForm ? 'Enviando...' : 'Solicitar Evaluación Gratuita'}
               variant="primaryFilled"
               size="md"
-              className="w-[200px]"
-              disabled={isLoadingPostTestn8n}
+              className="w-full md:w-auto min-h-[44px]"
+              disabled={isLoadingPostContactForm}
             />
           </form>
         </div>

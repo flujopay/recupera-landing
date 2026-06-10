@@ -51,7 +51,7 @@ export const PricingModel = () => {
                 <div className="text-slate-700 font-semibold">Setup</div>
               </div>
               <div className="bg-slate-50 rounded-xl p-6 text-center border-2 border-brand-primary">
-                <div className="text-4xl font-extrabold text-brand-primary mb-2">%</div>
+                <div className="text-4xl font-extrabold text-brand-primary mb-2">15%</div>
                 <div className="text-slate-700 font-semibold">Solo sobre monto recuperado</div>
               </div>
             </div>
@@ -85,7 +85,7 @@ export const PricingModel = () => {
               rightIcon={<ArrowRight className="h-5 w-5" />}
             />
             <p className="italic text-sm mt-4">
-              La comisión varía según volumen, antigüedad y complejidad.
+              La comisión base es 15% del monto recuperado. Varía según volumen, antigüedad y complejidad.
               <br />
               Respuesta en 24h.
             </p>

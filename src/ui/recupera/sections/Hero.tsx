@@ -22,12 +22,13 @@ export const Hero = () => {
       <div className="max-w-[1280px] mx-auto px-4 py-8 md:py-16 md:pt-12 md:pb-8 relative z-10">
         <div className="text-center mx-auto">
           <h1 className="text-brand-primary-dark font-canaro text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight">
-            Recupera tu cartera vencida. <span className="text-brand-primary">Pagas solo si lo logramos.</span>
+            Recupera tu cartera vencida.{' '}
+            <span className="text-brand-primary">Pagas solo si lo logramos.</span>
           </h1>
 
           <p className="text-black text-sm md:text-lg lg:text-xl mb-6 md:mb-8 mt-3 md:mt-4 max-w-3xl mx-auto leading-relaxed">
-            Cobranza B2B con publicación DICOM. Sin costo fijo, sin riesgo. Respaldados por Recsa y 40 años
-            de experiencia en Chile y LATAM.
+            Empresa de cobranza B2B con publicación DICOM en Chile. Sin costo fijo, sin riesgo. Respaldados
+            por Recsa y 40 años de experiencia en LATAM.
           </p>
 
           <div className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center max-w-md md:max-w-none mx-auto">
