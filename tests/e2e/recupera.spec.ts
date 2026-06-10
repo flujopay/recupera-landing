@@ -53,3 +53,14 @@ test('/thankyou muestra confirmación, embed HubSpot y botón WhatsApp', async (
   expect(waHref).toContain('wa.me/56977290160')
   expect(waHref).toContain('Recupera')
 })
+
+test('mobile 375px — hero CTA visible y StickyMobileCTA activo (#202)', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 })
+  await page.goto('/?utm_source=google&utm_medium=cpc')
+
+  // Hero CTA visible sin scroll
+  await expect(page.getByRole('button', { name: /solicitar evaluación gratuita/i }).first()).toBeVisible({ timeout: 15_000 })
+
+  // StickyMobileCTA (md:hidden) activo en mobile — aparece cuando form no está en viewport
+  await expect(page.getByText('Solicita Evaluación Gratuita')).toBeVisible()
+})
