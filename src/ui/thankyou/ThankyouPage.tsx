@@ -115,7 +115,7 @@ export const ThankyouPage = () => {
               <div className="flex flex-col items-center gap-3 mt-6 pt-6 border-t border-slate-100">
                 <p className="text-slate-500 text-sm">¿Tienes dudas? Habla con nuestro agente</p>
                 <Link
-                  href="https://wa.me/56977290160?text=Hola%2C+me+registr%C3%A9+en+Recupera+y+tengo+una+consulta+sobre+el+servicio"
+                  href="https://wa.me/56977290160?text=Hola%2C+acabo+de+registrarme+en+Recupera.+Quiero+saber+c%C3%B3mo+funciona+para+mi+cartera+de+facturas."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1da851] text-white font-bold text-sm px-5 py-3 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#25D366]/25 hover:scale-[1.02]"
