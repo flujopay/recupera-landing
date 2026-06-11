@@ -16,7 +16,8 @@
     "tsc": "tsc",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
     "prettier": "prettier --write .",
-    "lint-staged": "lint-staged --no-stash"
+    "lint-staged": "lint-staged --no-stash",
+    "test:e2e": "playwright test --reporter=line"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.2",
@@ -37,6 +38,7 @@
     "@commitlint/cli": "20.5.0",
     "@commitlint/config-conventional": "20.5.0",
     "@next/eslint-plugin-next": "16.2.4",
+    "@playwright/test": "1.60.0",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^20",
     "@types/react": "^19",

@@ -42,3 +42,8 @@ next-env.d.ts
 
 # Claude Code credentials (generado por workspace-template)
 .claude-credentials
+
+# Playwright
+playwright-report/
+test-results/
+.playwright-cache/

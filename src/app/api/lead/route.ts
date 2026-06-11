@@ -129,6 +129,15 @@ async function upsertContact(token: string, body: LeadPayload): Promise<string> 
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify({ properties }),
   })
+  if (res.status === 409) {
+    // Contact exists but findContactByEmail missed it (race/transient error) — recover the ID
+    const errData = (await res.json().catch(() => ({}))) as Record<string, unknown>
+    const conflictId = (errData.id as string) || (errData.data as Record<string, string>)?.existingObjectId
+    if (conflictId) return conflictId
+    const fallback = await findContactByEmail(token, body.email)
+    if (fallback) return fallback
+    throw new Error(`POST contact 409 conflict, ID not recoverable`)
+  }
   if (!res.ok) {
     const err = await res.json().catch(() => ({}))
     throw new Error(`POST contact failed: ${JSON.stringify(err)}`)
@@ -167,11 +176,15 @@ async function createDeal(token: string, contactId: string, body: LeadPayload): 
 }
 
 async function addToList(token: string, contactId: string): Promise<void> {
-  await fetch(`${HS_API}/crm/v3/lists/${PRODUCT_LIST_ID}/memberships/add`, {
+  const res = await fetch(`${HS_API}/crm/v3/lists/${PRODUCT_LIST_ID}/memberships/add`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify([contactId]),
   })
+  const data = await res.json().catch(() => ({}))
+  if (!res.ok || (data as { recordIdsMissing?: string[] }).recordIdsMissing?.length) {
+    throw new Error(`addToList failed for contact ${contactId}: ${JSON.stringify(data)}`)
+  }
 }
 
 async function sendMetaCapi(body: LeadPayload): Promise<void> {
