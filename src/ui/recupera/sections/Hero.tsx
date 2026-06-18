@@ -60,14 +60,14 @@ export const Hero = () => {
               Tasa de recuperación
             </div>
           </div>
-          <div className="flex-1 p-3 md:p-8 text-center border-l border-r border-slate-200">
+          {/* <div className="flex-1 p-3 md:p-8 text-center border-l border-r border-slate-200">
             <div className="text-lg md:text-4xl font-extrabold text-brand-primary mb-0.5 md:mb-1">
               15 países
             </div>
             <div className="text-slate-600 text-[9px] md:text-sm font-medium leading-tight">
               Presencia LATAM
             </div>
-          </div>
+          </div> */}
           {/* <div className="flex-1 p-3 md:p-8 text-center">
             <div className="text-lg md:text-4xl font-extrabold text-brand-primary mb-0.5 md:mb-1">
               40+ años
