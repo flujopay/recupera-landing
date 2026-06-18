@@ -13,10 +13,10 @@ const faqs = [
     question: '¿Qué pasa si no recuperan nada?',
     answer: 'No pagas nada. Modelo 100% contingente.',
   },
-  {
-    question: '¿Se preservan las relaciones?',
-    answer: 'Nuestro enfoque profesional preserva vínculos comerciales. 40 años de experiencia Recsa.',
-  },
+  // {
+  //   question: '¿Se preservan las relaciones?',
+  //   answer: 'Nuestro enfoque profesional preserva vínculos comerciales. 40 años de experiencia Recsa.',
+  // },
   {
     question: '¿Trabajan solo cartera vencida?',
     answer: 'Sí, cartera +60 días vencida. Para cobranza preventiva, usa la plataforma Sena.',

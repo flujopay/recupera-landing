@@ -27,8 +27,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-black text-sm md:text-lg lg:text-xl mb-6 md:mb-8 mt-3 md:mt-4 max-w-3xl mx-auto leading-relaxed">
-            Empresa de cobranza B2B con publicación DICOM en Chile. Sin costo fijo, sin riesgo. Respaldados
-            por Recsa y 40 años de experiencia en LATAM.
+            Empresa de cobranza B2B con publicación DICOM en Chile. Sin costo fijo, sin riesgo.
           </p>
 
           <div className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center max-w-md md:max-w-none mx-auto">
@@ -69,14 +68,14 @@ export const Hero = () => {
               Presencia LATAM
             </div>
           </div>
-          <div className="flex-1 p-3 md:p-8 text-center">
+          {/* <div className="flex-1 p-3 md:p-8 text-center">
             <div className="text-lg md:text-4xl font-extrabold text-brand-primary mb-0.5 md:mb-1">
               40+ años
             </div>
             <div className="text-slate-600 text-[9px] md:text-sm font-medium leading-tight">
               Experiencia Recsa
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
