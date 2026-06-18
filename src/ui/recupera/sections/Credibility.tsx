@@ -61,12 +61,12 @@ export const Credibility = () => {
           })}
         </div>
 
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 shadow-sm">
             <Award className="h-5 w-5 text-brand-primary" />
             <span className="text-brand-primary-dark font-semibold">Powered by Recsa</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
