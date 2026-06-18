@@ -32,7 +32,7 @@ export const Credibility = () => {
   return (
     <div id="credibilidad" className="bg-[#F9F9F9] py-12 md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-12">
-        <div className="text-left mb-12">
+        {/* <div className="text-left mb-12">
           <h2 className="text-brand-primary-dark text-3xl md:text-4xl font-extrabold mb-4">
             Recsa: 40 años recuperando cartera en <span className="text-brand-primary">15 países</span>
           </h2>
@@ -59,7 +59,7 @@ export const Credibility = () => {
               </div>
             )
           })}
-        </div>
+        </div> */}
 
         {/* <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 shadow-sm">
