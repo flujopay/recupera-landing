@@ -18,7 +18,7 @@ export const Hero = () => {
   }
 
   return (
-    <div className="relative overflow-hidden transition-all gap-6 bg-[#F9F9F9] p-4 md:p-6">
+    <div className="relative overflow-hidden transition-all gap-6 bg-surface-secondary p-4 md:p-6">
       <div className="max-w-[1280px] mx-auto px-4 py-8 md:py-16 md:pt-12 md:pb-8 relative z-10">
         <div className="text-center mx-auto">
           <h1 className="text-brand-primary-dark font-canaro text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight">
@@ -26,7 +26,7 @@ export const Hero = () => {
             <span className="text-brand-primary">Pagas solo si lo logramos.</span>
           </h1>
 
-          <p className="text-black text-sm md:text-lg lg:text-xl mb-6 md:mb-8 mt-3 md:mt-4 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-text-secondary text-sm md:text-lg lg:text-xl mb-6 md:mb-8 mt-3 md:mt-4 max-w-3xl mx-auto leading-relaxed">
             Empresa de cobranza B2B con publicación DICOM en Chile. Sin costo fijo, sin riesgo. Respaldados
             por Recsa y 40 años de experiencia en LATAM.
           </p>
@@ -57,15 +57,15 @@ export const Hero = () => {
         <div className="flex bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl overflow-hidden">
           <div className="flex-1 p-3 md:p-8 text-center">
             <div className="text-lg md:text-4xl font-extrabold text-brand-primary mb-0.5 md:mb-1">+85%</div>
-            <div className="text-slate-600 text-[9px] md:text-sm font-medium leading-tight">
+            <div className="text-text-secondary text-[9px] md:text-sm font-medium leading-tight">
               Tasa de recuperación
             </div>
           </div>
-          <div className="flex-1 p-3 md:p-8 text-center border-l border-r border-slate-200">
+          <div className="flex-1 p-3 md:p-8 text-center border-l border-r border-border-default">
             <div className="text-lg md:text-4xl font-extrabold text-brand-primary mb-0.5 md:mb-1">
               15 países
             </div>
-            <div className="text-slate-600 text-[9px] md:text-sm font-medium leading-tight">
+            <div className="text-text-secondary text-[9px] md:text-sm font-medium leading-tight">
               Presencia LATAM
             </div>
           </div>
@@ -73,7 +73,7 @@ export const Hero = () => {
             <div className="text-lg md:text-4xl font-extrabold text-brand-primary mb-0.5 md:mb-1">
               40+ años
             </div>
-            <div className="text-slate-600 text-[9px] md:text-sm font-medium leading-tight">
+            <div className="text-text-secondary text-[9px] md:text-sm font-medium leading-tight">
               Experiencia Recsa
             </div>
           </div>
