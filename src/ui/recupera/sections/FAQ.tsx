@@ -31,7 +31,7 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <div id="preguntas-frecuentes" className="bg-white py-12 md:py-20">
+    <div id="preguntas-frecuentes" className="bg-surface-default py-16 md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-12">
         <div className="text-left mb-12">
           <h2 className="text-brand-primary-dark text-3xl md:text-4xl font-extrabold mb-4">
@@ -44,13 +44,13 @@ export const FAQ = () => {
             <DropDownCard
               key={index}
               isOpen={openIndex === index}
-              customClassName="bg-white border-2 border-slate-200 rounded-2xl shadow-sm"
+              customClassName="bg-white border border-border-default rounded-xl"
               contentHead={
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-slate-50 transition-all duration-300"
+                  className="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-surface-secondary transition-all duration-300"
                 >
-                  <span className="text-brand-primary-dark font-bold text-xl pr-4">{faq.question}</span>
+                  <span className="text-text-primary font-semibold text-xl pr-4">{faq.question}</span>
                   <ChevronDown
                     className={`h-6 w-6 text-brand-primary transition-transform duration-300 shrink-0 ${
                       openIndex === index ? 'rotate-180' : ''
@@ -60,7 +60,7 @@ export const FAQ = () => {
               }
               contentDetail={
                 <div className="px-6 mb-6 pt-2">
-                  <p className="text-slate-600 text-lg leading-relaxed">{faq.answer}</p>
+                  <p className="text-text-secondary text-sm leading-relaxed">{faq.answer}</p>
                 </div>
               }
             />
