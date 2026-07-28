@@ -13,7 +13,7 @@ import Providers from './providers'
 export const metadata: Metadata = {
   title: 'Recupera tu Cartera Vencida | Empresa de Cobranza B2B Chile',
   description:
-    'Empresa de cobranza B2B en Chile. Recuperamos tu cartera vencida con publicación DICOM. Solo pagas si lo logramos. +85% recupero promedio. Respaldados por Recsa.',
+    'Empresa de cobranza B2B en Chile. Recuperamos tu cartera vencida con publicación DICOM. Solo pagas si lo logramos. +85% recupero promedio.',
   keywords:
     'empresa de cobranza, empresa de cobranza b2b chile, cobranza b2b chile, recuperar cartera vencida, cobranza contingente, cobranza online, cobrar facturas vencidas, facturas impagas, publicacion dicom, externalizar cobranza b2b, servicio de cobranza empresas',
   authors: [{ name: 'Recupera' }],
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Recupera tu Cartera Vencida | Empresa de Cobranza B2B Chile',
     description:
-      'Empresa de cobranza B2B en Chile. Solo pagas si recuperamos tu cartera vencida. +85% de recupero promedio. Respaldados por Recsa.',
+      'Empresa de cobranza B2B en Chile. Solo pagas si recuperamos tu cartera vencida. +85% de recupero promedio.',
     images: ['https://recupera.somossena.com/sena-crm-lite.jpg'],
   },
   openGraph: {
     title: 'Recupera tu Cartera Vencida | Empresa de Cobranza B2B Chile',
     description:
-      'Empresa de cobranza B2B en Chile. Recuperamos tu cartera vencida con publicación DICOM. Solo pagas si lo logramos. +85% recupero. Respaldados por Recsa.',
+      'Empresa de cobranza B2B en Chile. Recuperamos tu cartera vencida con publicación DICOM. Solo pagas si lo logramos. +85% recupero.',
     type: 'website',
     url: 'https://recupera.somossena.com',
     images: ['https://recupera.somossena.com/sena-crm-lite.jpg'],
@@ -81,7 +81,7 @@ export default async function RootLayout({
                   name: '¿Se preservan las relaciones comerciales?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Sí. Nuestro enfoque profesional preserva los vínculos comerciales. 40 años de experiencia Recsa en gestión de cobranza B2B.',
+                    text: 'Sí. Nuestro enfoque profesional preserva los vínculos comerciales en cada gestión de cobranza B2B.',
                   },
                 },
                 {
