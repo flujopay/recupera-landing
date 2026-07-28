@@ -7,7 +7,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: 'El respaldo de Recsa es invaluable. Son negociadores expertos que entienden el contexto B2B.',
+    quote: 'El respaldo de Sena es invaluable. Son negociadores expertos que entienden el contexto B2B.',
     author: 'Director Financiero, Empresa Tech',
     rating: 5,
   },

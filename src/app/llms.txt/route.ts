@@ -27,7 +27,6 @@ No realizamos gestión judicial. Todo el proceso es externo a los tribunales.
 - 85% de tasa de recupero promedio
 - Primeros contactos en 48-72h
 - Acuerdos típicamente en 2 semanas
-- Presencia en 15 países de LATAM
 
 ## A quién va dirigido
 
@@ -36,11 +35,6 @@ Empresas B2B con:
 - Facturas impagas que no responden a gestión interna
 - Necesidad de externalizar cobranza sin riesgo financiero
 - Operación en Chile, Perú y otros países de LATAM
-
-## Respaldo institucional
-
-Recupera está respaldado por Recsa, líder en cobranza LATAM con más de 40 años de experiencia,
-operando en 15 países, con 146M de gestiones mensuales y 70M de llamadas de agentes.
 
 ## Páginas principales
 

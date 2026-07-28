@@ -179,12 +179,6 @@ export const Footer = () => {
         <div className="md:hidden">
           <div className="border-t border-white/30 pt-6 flex justify-between items-center">
             <p className="text-xs">© SENA SE 2026</p>
-            <img
-              className="w-20 cursor-pointer"
-              src={AssetImage.byRecsa.src}
-              alt="byRecsa"
-              onClick={() => window.open('https://recsa.com', '_blank')}
-            />
           </div>
         </div>
 
@@ -329,14 +323,6 @@ export const Footer = () => {
               <AssetIcon.youtube width={22} height={22} />
             </a>
           </div>
-        </div>
-        <div className="hidden md:flex w-full justify-end mt-8">
-          <img
-            className="w-24 cursor-pointer"
-            src={AssetImage.byRecsa.src}
-            alt="byRecsa"
-            onClick={() => window.open('https://recsa.com', '_blank')}
-          />
         </div>
       </div>
     </footer>
