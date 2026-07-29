@@ -38,10 +38,6 @@ export const FinalCTA = () => {
               <div className="text-3xl font-extrabold text-brand-primary mb-2">$0</div>
               <div className="text-slate-600 text-sm font-medium">inicial</div>
             </div>
-            <div className="bg-white rounded-xl p-6 text-center border border-slate-200 shadow-sm">
-              <div className="text-3xl font-extrabold text-brand-primary mb-2">40+</div>
-              <div className="text-slate-600 text-sm font-medium">años Recsa</div>
-            </div>
           </div>
 
           <div className="mb-8">

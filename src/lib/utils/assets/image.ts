@@ -1,7 +1,6 @@
 import aomLogo from '@/public/images/aom_logo.png'
 import aquariusConsultingLogo from '@/public/images/aquarius_consulting_logo.png'
 import autogestion from '@/public/images/autogestion.png'
-import byRecsa from '@/public/images/byRecsa.png'
 import cientificaLogo from '@/public/images/cientifica_logo.png'
 import cobra from '@/public/images/cobra.png'
 import conciliator1 from '@/public/images/conciliator1.png'
@@ -14,7 +13,6 @@ import home3 from '@/public/images/home3.png'
 import home4 from '@/public/images/home4.png'
 import logoBlack from '@/public/images/logo_black.png'
 import logoBlanco from '@/public/images/logo_blanco.png'
-import mapLatamRecsa from '@/public/images/mapLatamRecsa.png'
 import maruzLogo from '@/public/images/maruz_logo.png'
 import nosotros1 from '@/public/images/nosotros1.png'
 import nosotros2 from '@/public/images/nosotros2.png'
@@ -52,6 +50,4 @@ export class AssetImage {
   static evalua = evalua
   static autogestion = autogestion
   static recuperaGirl = recuperaGirl
-  static byRecsa = byRecsa
-  static mapLatamRecsa = mapLatamRecsa
 }
