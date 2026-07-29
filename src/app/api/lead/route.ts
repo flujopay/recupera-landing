@@ -261,6 +261,9 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error('[HubSpot] error:', err instanceof Error ? err.message : 'CRM error')
     await capiPromise
-    return NextResponse.json({ ok: true, warning: 'CRM sync pendiente' })
+    return NextResponse.json(
+      { ok: false, error: 'No pudimos registrar tu solicitud. Intenta de nuevo.' },
+      { status: 502 }
+    )
   }
 }
