@@ -31,7 +31,8 @@ type FormData = {
 }
 
 export const ContactForm = () => {
-  const { postContactFormMutate, isLoadingPostContactForm } = usePostContactForm()
+  const { postContactFormMutate } = usePostContactForm()
+  const [isSubmittingLead, setIsSubmittingLead] = useState(false)
   const { data: countries = [] } = useCountries()
   const { ipCurrency } = useCurrencyStore()
   const { showToast } = useToastStore()
@@ -113,31 +114,50 @@ export const ContactForm = () => {
     },
   })
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     const pais = countries?.find((c) => c.country === countrySelect)?.country_code || ''
     const telefonoConPrefijo = (countrySelect || '') + data.whatsapp
 
-    fetch('/api/lead', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        nombre: data.nombre,
-        apellido: data.apellido,
-        empresa: data.empresa,
-        email: data.email,
-        telefono: telefonoConPrefijo,
-        facturas_pendientes: data.facturas_pendientes,
-        alguien_cobrando: data.alguien_cobrando,
-        utmSource: utmSource ?? undefined,
-        utmMedium: utmMedium ?? undefined,
-        utmCampaign: utmCampaign ?? undefined,
-        utmContent: utmContent ?? undefined,
-        utmTerm: utmTerm ?? undefined,
-        gclid: gclid ?? undefined,
-        fbclid: fbclid ?? undefined,
-        landingPage: window.location.href,
-      }),
-    }).catch(() => {})
+    setIsSubmittingLead(true)
+
+    let hubspotOk = false
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: data.nombre,
+          apellido: data.apellido,
+          empresa: data.empresa,
+          email: data.email,
+          telefono: telefonoConPrefijo,
+          facturas_pendientes: data.facturas_pendientes,
+          alguien_cobrando: data.alguien_cobrando,
+          utmSource: utmSource ?? undefined,
+          utmMedium: utmMedium ?? undefined,
+          utmCampaign: utmCampaign ?? undefined,
+          utmContent: utmContent ?? undefined,
+          utmTerm: utmTerm ?? undefined,
+          gclid: gclid ?? undefined,
+          fbclid: fbclid ?? undefined,
+          landingPage: window.location.href,
+        }),
+      })
+      const json = await res.json().catch(() => ({ ok: false }))
+      hubspotOk = res.ok && json.ok
+    } catch {
+      hubspotOk = false
+    }
+
+    if (!hubspotOk) {
+      setIsSubmittingLead(false)
+      showToast({
+        iconType: 'error',
+        message: 'Error al enviar el formulario',
+        subMessage: 'Por favor, intenta de nuevo.',
+      })
+      return
+    }
 
     const contactPayload: ContactFormRequest = {
       nombre: data.nombre,
@@ -156,7 +176,8 @@ export const ContactForm = () => {
       utmContent: utmContent || undefined,
     }
     postContactFormMutate(contactPayload, {
-      onSuccess: () => {
+      onSettled: () => {
+        setIsSubmittingLead(false)
         showToast({
           iconType: 'success',
           message: 'Formulario enviado correctamente',
@@ -164,13 +185,6 @@ export const ContactForm = () => {
         })
         reset()
         router.push('/thankyou')
-      },
-      onError: () => {
-        showToast({
-          iconType: 'error',
-          message: 'Error al enviar el formulario',
-          subMessage: 'Por favor, intenta de nuevo.',
-        })
       },
     })
   }
@@ -381,11 +395,11 @@ export const ContactForm = () => {
 
             <Button
               type="submit"
-              text={isLoadingPostContactForm ? 'Enviando...' : 'Solicitar Evaluación Gratuita'}
+              text={isSubmittingLead ? 'Enviando...' : 'Solicitar Evaluación Gratuita'}
               variant="primaryFilled"
               size="md"
               className="w-full md:w-auto min-h-[44px]"
-              disabled={isLoadingPostContactForm}
+              disabled={isSubmittingLead}
             />
           </form>
         </div>
