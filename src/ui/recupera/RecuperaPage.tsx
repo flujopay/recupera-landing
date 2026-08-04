@@ -13,7 +13,6 @@ import { Hero } from './sections/Hero'
 import { HowItWorks } from './sections/HowItWorks'
 import { PricingModel } from './sections/PricingModel'
 import { StickyMobileCTA } from './sections/StickyMobileCTA'
-import { Testimonials } from './sections/Testimonials'
 import { UseCases } from './sections/UseCases'
 
 export const RecuperaPage = () => {
@@ -47,7 +46,6 @@ export const RecuperaPage = () => {
         <PricingModel />
         <Credibility />
         <UseCases />
-        <Testimonials />
         <FAQ />
         <FinalCTA />
         <ContactForm />

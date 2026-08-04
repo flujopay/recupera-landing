@@ -36,7 +36,7 @@ export const HowItWorks = () => {
             ¿Cómo recuperamos <span className="text-brand-primary">tu cartera?</span>
           </h2>
           <p className="font-adobe text-black mt-2 text-lg leading-5">
-            Proceso probado con cientos de empresas B2B en 15 países de LATAM
+            Proceso con más de 40 años de experiencia operativa en cobranza en 15 países de LATAM
           </p>
         </div>
 
