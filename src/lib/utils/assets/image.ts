@@ -21,7 +21,6 @@ import rioSena from '@/public/images/rio_sena.jpg'
 import senaLogoOrange from '@/public/images/sena_logo_orange.png'
 import sincroniza from '@/public/images/sincroniza.png'
 import telefonicaLogo from '@/public/images/telefonica_logo.png'
-import topSpaceLogo from '@/public/images/top_space_logo.png'
 
 export class AssetImage {
   static logoBlack = logoBlack
@@ -37,7 +36,6 @@ export class AssetImage {
   static telefonicaLogo = telefonicaLogo
   static maruzLogo = maruzLogo
   static aomLogo = aomLogo
-  static topSpaceLogo = topSpaceLogo
   static home3 = home3
   static logoBlanco = logoBlanco
   static nosotros2 = nosotros2
