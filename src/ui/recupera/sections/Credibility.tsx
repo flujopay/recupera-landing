@@ -6,7 +6,6 @@ const clients = [
   { name: 'Top Space', logo: AssetImage.topSpaceLogo.src },
   { name: 'Maruz', logo: AssetImage.maruzLogo.src },
   { name: 'AOM', logo: AssetImage.aomLogo.src },
-  { name: 'Recsa', logo: AssetImage.recsaLogo.src },
 ]
 
 const track = [...clients, ...clients]
