@@ -1,5 +1,4 @@
 import aomLogo from '@/public/images/aom_logo.png'
-import aquariusConsultingLogo from '@/public/images/aquarius_consulting_logo.png'
 import autogestion from '@/public/images/autogestion.png'
 import cientificaLogo from '@/public/images/cientifica_logo.png'
 import cobra from '@/public/images/cobra.png'
@@ -13,16 +12,15 @@ import home3 from '@/public/images/home3.png'
 import home4 from '@/public/images/home4.png'
 import logoBlack from '@/public/images/logo_black.png'
 import logoBlanco from '@/public/images/logo_blanco.png'
+import lorealLogo from '@/public/images/loreal_logo.png'
 import maruzLogo from '@/public/images/maruz_logo.png'
 import nosotros1 from '@/public/images/nosotros1.png'
 import nosotros2 from '@/public/images/nosotros2.png'
-import proweldLogo from '@/public/images/proweld_logo.png'
 import recuperaGirl from '@/public/images/recupera_girl.jpeg'
 import rioSena from '@/public/images/rio_sena.jpg'
 import senaLogoOrange from '@/public/images/sena_logo_orange.png'
 import sincroniza from '@/public/images/sincroniza.png'
 import telefonicaLogo from '@/public/images/telefonica_logo.png'
-import topSpaceLogo from '@/public/images/top_space_logo.png'
 
 export class AssetImage {
   static logoBlack = logoBlack
@@ -34,12 +32,10 @@ export class AssetImage {
   static conciliator1 = conciliator1
   static conciliatorNavbar = conciliatorNavbar
   static cientificaLogo = cientificaLogo
-  static proweldLogo = proweldLogo
-  static aquariusConsultingLogo = aquariusConsultingLogo
+  static lorealLogo = lorealLogo
   static telefonicaLogo = telefonicaLogo
   static maruzLogo = maruzLogo
   static aomLogo = aomLogo
-  static topSpaceLogo = topSpaceLogo
   static home3 = home3
   static logoBlanco = logoBlanco
   static nosotros2 = nosotros2
